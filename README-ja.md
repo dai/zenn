@@ -51,214 +51,136 @@ My favorite number is probably the number
 Commonmarkでは、`1. `以外のマーカーで始まるリストが段落を中断することを禁止するなど、目標7に対していくらか譲歩しています。しかし、これは構文の規則性と予測可能性を犠牲にした妥協です。一般的なルールを決めたほうが良いでしょう。
 
 最後の決定の意味は、「タイトな」リストは引き続き可能ですが (項目間に空白行を入れない)、サブリストの前には常に空白行を置く必要があるということです。したがって、代わりに
-  Commonmark does make some concessions to goal 7, by forbidding
-  lists beginning with markers other than `1.` to interrupt paragraphs.
-  But this is a compromise and a sacrifice of regularity and
-  predictability in the syntax. Better just to have a general rule.
 
-- An implication of the last decision is that, although "tight"
-  lists are still possible (without blank lines between items),
-  a *sublist* must always be preceded by a blank line. Thus,
-  instead of
+```
+- Fruits
+  - apple
+  - orange
+```
+は以下のように書かなければなりません。
 
-  ```
-  - Fruits
-    - apple
-    - orange
-  ```
+```
+- Fruits
+  - apple
+  - orange
+```
 
-  you must write
+(この空行は「タイトさ」にはカウントされません)。reStructuredTextも同じ設計上の決定を行います。
 
-  ```
-  - Fruits
+また、目標7を促進するために、見出しが複数行にわたる「怠惰さ」を許可します。
 
-    - apple
-    - orange
-  ```
+```
+## My excessively long section heading is too
+long to fit on one line.
+```
 
-  (This blank line doesn't count against "tightness.")
-  reStructuredText makes the same design decision.
+作業中に、setext-style(下線付き)の見出しを削除して簡素化します。実際には2つの見出し構文は必要ありません(目標11)。
 
-- Also to promote goal 7, we allow headings to "lazily"
-  span multiple lines:
+- 目標5を達成するために、非常に単純なルールがあります。リスト マーカーの先頭を超えてインデントされているものはすべてリスト項目に属します。
 
-  ```
-  ## My excessively long section heading is too
-  long to fit on one line.
-  ``` 
+```
+1. list item
+  > block quote inside item 1
+2. second item
+```
 
-  While we're at it, we'll simplify by removing setext-style
-  (underlined) headings. We don't really need two heading
-  syntaxes (goal 11).
+commonmarkでは、ブロック引用符が十分にインデントされていないため、これはブロック引用符で囲まれた2つの別個のリストとして解析されます。commonmarkでこの単純なルールを使用できなかったのは、インデントされたコード ブロックでした。リスト項目にインデントされたコード ブロックが含まれる場合、どの列でインデントのカウントを開始するかを知る必要があるため、リストの見栄えを最も良くする列(マーカーの後のスペース以外のコンテンツの最初の列)に固定しました。
 
-- To meet goal 5, we have a very simple rule: anything that is
-  indented beyond the start of the list marker belongs in
-  the list item.
+```
+1.  A commonmark list item with an indented code block in it.
+        code!
+```
 
-  ```
-  1. list item
+djot では、インデントされたコード ブロックを削除するだけです。いずれにせよ、ほとんどの人はフェンスで囲まれたコード ブロックを好みます。コード ブロックを記述する2つの異なる方法は必要ありません(目標11)。
 
-    > block quote inside item 1
+- 目標6を達成し、生のHTMLを処理するために採用されている複雑なルールを回避するために、明示的にマークされたコンテキストを除き、生のHTMLを許可しません
 
-  2. second item
-  ```
+例: `<a id="foo">`{=html}
 
-  In commonmark, this would be parsed as two separate lists with
-  a block quote between them, because the block quote is not
-  indented far enough. What kept us from using this simple rule
-  in commonmark was indented code blocks. If list items are
-  going to contain an indented code block, we need to know at
-  what column to start counting the indentation, so we fixed on
-  the column that makes the list look best (the first column of
-  non-space content after the marker):
+``` =html
+<table>
+<tr><td>foo</td></tr>
+</table>
+```
 
-  ```
-  1.  A commonmark list item with an indented code block in it.
+Markdownとは異なり、djotはHTML中心ではありません。Djotドキュメントはさまざまな形式でレンダリングされる可能性があるため、生のコンテンツをあらゆる出力形式に含める柔軟性を提供したいと考えていますが、HTMLに特権を与える理由はありません。同様の理由で、commonmarkとは異なり、HTMLエンティティを解釈しません。
 
-          code!
-  ```
+- 目標2を達成するために、参照リンクの解析をローカルにします。`[foo][bar]`または`[foo][]`のように見えるものは、`[foo]`が文書の後半で定義されているかどうかに関係なく、参照リンクとして扱われます。したがって、`[like this]`のような括弧1つだけのショートカット リンク構文は削除しなければなりません。周囲の文脈を知らなくても何がリンクであるかは常に明確でなければなりません。
 
-  In djot, we just get rid of indented code blocks. Most people
-  prefer fenced code blocks anyway, and we don't need two
-  different ways of writing code blocks (goal 11).
+- 目標6をサポートするため、参照リンクでは大文字と小文字が区別されなくなりました。ASCIIコンテキストを超えてこれをサポートするには、すべての実装にUnicodeケースの折りたたみを組み込む必要がありますが、その必要はないようです。
 
-- To meet goal 6 and to avoid the complex rules commonmark
-  adopted for handling raw HTML, we simply do not allow raw HTML,
-  except in explicitly marked contexts, e.g.
-  `` `<a id="foo">`{=html} `` or
+- 目標8に記載されている均一性の原則の違反を避けるために、ブロック引用符の後にスペースまたは改行が必要です。
 
-  ````
-  ``` =html
-  <table>
-  <tr><td>foo</td></tr>
-  </table>
-  ```
-  ````
+```
+>This is not a
+>block quote in djot.
+```
 
-  Unlike Markdown, djot is not HTML-centric. Djot documents
-  might be rendered to a variety of different formats, so although
-  we want to provide the flexibility to include raw content in
-  any output format, there is no reason to privilege HTML. For
-  similar reasons we do not interpret HTML entities, as
-  commonmark does.
+- 目標3を達成するために、強調のために二重文字を使用することは避けます。代わりに`_`強調や`*`強い強調を使用します。強調は後にスペースが続かない限り、これらの文字1つで開始でき、前にスペースがなく、間に異なる文字が存在しない限り、類似の文字が見つかったときに終了します。重複した場合は、最初に閉じられたものが優先されます。(この単純なルールにより、commonmarkでUnicode文字クラスを決定する必要性も回避できます -- 目標6)。
 
-- To meet goal 2, we make reference link parsing local.
-  Anything that looks like `[foo][bar]` or `[foo][]` gets
-  treated as a reference link, regardless of whether `[foo]`
-  is defined later in the document. A corollary is that we
-  must get rid of shortcut link syntax, with just a single
-  bracket pair, `[like this]`. It must always be clear what is a
-  link without needing to know the surrounding context.
+- この最後の変更だけを見ても、表現上の盲点が多数発生することになります。たとえば単純なルールを考えると、
 
-- In support of goal 6, reference links are no longer
-  case-insensitive. Supporting this beyond an ASCII context
-  would require building in unicode case folding to every
-  implementation, and it doesn't seem necessary.
+```
+_(_foo_)_
+```
 
-- A space or newline is required after `>` in block quotes,
-  to avoid the violations of the principle of uniformity 
-  noted in goal 8:
+は以下のように解析します
 
-  ```
-  >This is not a
-  >block quote in djot.
-  ```
+```
+<em>(</em>foo<em>)</em>
+```
 
-- To meet goal 3, we avoid using doubled characters for
-  strong emphasis. Instead, we use `_` for emphasis and `*` for
-  strong emphasis. Emphasis can begin with one of these
-  characters, as long as it is not followed by a space,
-  and will end when a similar character is encountered,
-  as long as it is not preceded by a space and some
-  different characters have occurred in between. In the case
-  of overlap, the first one to be closed takes precedence.
-  (This simple rule also avoids the need we had in commonmark to
-  determine unicode character classes---goal 6.)
+それよりも
 
-- Taken just by itself, this last change would introduce a
-  number of expressive blind spots. For example, given the
-  simple rule,
-  ```
-  _(_foo_)_
-  ```
-  parses as
-  ``` html
-  <em>(</em>foo<em>)</em>
-  ```
-  rather than
-  ``` html
-  <em>(<em>foo</em>)</em>
-  ```
-  If you want the latter
-  interpretation, djot allows you to use the syntax
-  ```
-  _({_foo_})_
-  ```
-  The `{_` is a `_` that can only open emphasis, and the `_}` is
-  a `_` that can only close emphasis. The same can be done with
-  `*` or any other inline formatting marker that is ambiguous
-  between an opener and closer. These curly braces are
-  *required* for certain inline markup, e.g. `{=highlighting=}`,
-  `{+insert+}`, and `{-delete-}`, since the characters `=`, `+`,
-  and `-` are found often in ordinary text.
+```
+<em>(<em>foo</em>)</em>
+```
 
-- In support of goal 1, code span parsing does not backtrack.
-  So if you open a code span and don't close it, it extends to
-  the end of the paragraph. That is similar to the way fenced
-  code blocks work in commonmark.
+後者の解釈が必要な場合、djotでは次の構文を使用できます。
 
-  ```
-  This is `inline code.
-  ```
+```
+_({_foo_})_
+```
 
-- In support of goal 9, a generic attribute syntax is
-  introduced. Attributes can be attached to any block-level
-  element by putting them on the line before it, and to any
-  inline-level element by putting them directly after it.
+`{_`は強調を開くだけの`_`であり、`_}`は強調を閉じるだけの`_`です。同じことが`*`やオープナー、クローザー間があいまいなその他インライン書式設定マーカーでも同じです。これらの中括弧は、特定のインライン・マークアップ、例えば`{=highlighting=}`、`{+insert+}`、`{-delete-}`に必要です。
 
-  ```
-  {#introduction}
-  This is the introductory paragraph, with
-  an identifier `introduction`.
+- 目標1をサポートするために、コード スパン解析はバックトラックしません。したがって、コード スパンを開いて閉じないと、段落の終わりまで拡張されます。これは、commonmarkでフェンスド コード ブロックが動作する方法と似ています。
 
-             {.important color="blue" #heading}
-  ## heading
+```
+This is `inline code.
+``
+- 目標9をサポートするために汎用属性構文が導入されています。属性はその前の行に配置することで任意のブロック レベルの要素に付加でき、その直後に配置することで任意のインライン レベルの要素に付加できます。
+```
+{#introduction}
+This is the introductory paragraph, with
+an identifier `introduction`.
 
-  The word *atelier*{weight="600"} is French.
-  ```
+           {.important color="blue" #heading}
+## heading
 
-- Since we are going to have generic attributes, we no longer
-  support quoted titles in links. One can add a title
-  attribute if needed, but this isn't very common, so we don't
-  need a special syntax for it:
+The word *atelier*{weight="600"} is French.
+```
+- 汎用属性を使用する予定であるため、リンク内での引用タイトルはサポートされなくなりました。必要に応じて`title`属性を追加できますが、これはあまり一般的ではないため特別な構文は必要ありません。
+```
+[Link text](url){title="Click me!"}
+```
+- ブロックレベルまたはインラインレベルの要素の任意のシーケンスに属性を付加できるようにするためフェンスで囲まれたdivと括弧で囲まれたスパンが導入されました。例えば、
+```
+{#warning .sidebar}
+::: Warning
+This is a warning.
+Here is a word in [français]{lang=fr}.
+:::
+```
+## 構文
 
-  ```
-  [Link text](url){title="Click me!"}
-  ```
+完全な構文リファレンスについては、「[構文の説明](https://htmlpreview.github.io/?https://github.com/jgm/djot/blob/master/doc/syntax.html)」を参照してください。
 
-- Fenced divs and bracketed spans are introduced in order to
-  allow attributes to be attached to arbitrary sequences of
-  block-level or inline-level elements. For example,
+djotのvim構文強調表示定義は、`editors/vim/`で提供されています。
 
-  ```
-  {#warning .sidebar}
-  ::: Warning
-  This is a warning.
-  Here is a word in [français]{lang=fr}.
-  :::
-  ```
+## 実装
 
-## Syntax
-
-For a full syntax reference, see the
-[syntax description](https://htmlpreview.github.io/?https://github.com/jgm/djot/blob/master/doc/syntax.html).
-
-A vim syntax highlighting definition for djot is provided in
-`editors/vim/`.
-
-## Implementations
-
-There are currently six djot implementations:
+現在、6つのdjot実装があります。
 
 - [djot.js (JavaScript/TypeScript)](https://github.com/jgm/djot.js)
 - [djot.lua (Lua)](https://github.com/jgm/djot.lua)
@@ -267,17 +189,12 @@ There are currently six djot implementations:
 - [godjot (Go)](https://github.com/sivukhin/godjot)
 - [djoths (Haskell)](https://github.com/jgm/djoths)
 
-djot.lua was the original reference implementation, but
-current development is focused on djot.js, and it is possible
-that djot.lua will not be kept up to date with the latest syntax
-changes.
+## ファイル拡張子
 
-## File extension
+`djot.lua`はオリジナルのリファレンス実装でしたが、現在の開発は`djot.js`に重点を置いており、`djot.lua`が最新の構文変更に対応していない可能性があります。
 
-The extension `.dj` may be used to indicate that the contents
-of a file are djot-formatted text.
+拡張子は、`.dj`ファイルの内容がdjot形式のテキストであることを示すために使用できます。
 
-## License
+## ライセンス
 
-The code and documentation are released under the MIT license.
-
+コードとドキュメントはMITライセンスに基づいてリリースされています。
