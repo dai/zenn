@@ -1,4 +1,4 @@
-# djot cheatsheet
+# djot チートシート
 
 ## 基本
 
@@ -118,77 +118,72 @@ then later:
 
 etc.
 
-## Lists
+## リスト
 
 ~~~
-Itemized list:
+項目リスト:
 
  * lions
  * tigers
  * bears
 ~~~
 
-You can indent your list marker zero or more spaces, using the same
-indent for items at same level. If you want a subsequent paragraph
-to be part of a list item, indent at least past the list marker.
+同じレベルの項目に同じインデントを使用して、リスト マーカーを0個以上のスペースでインデントできます。後続の段落をリスト項目の一部にしたい場合は、少なくともリスト マーカーで用いた以上のスペースでインデントします。
 
-Like subsequent paragraphs, sublists must be preceded by a blank line
-(blank lines are almost always required between block-level elements).
-The sublist markers must also be indented at least past the previous
-list item's marker.
+後続の段落と同様に、サブリストの前に空行を置く必要があります (ブロックレベルの要素の間には、ほとんどの場合空行が必要です)。サブリスト マーカーも、少なくとも前のリスト項目のマーカーで用いた以上のスペースでインデントする必要があります。
 
 ~~~ 
-Another list:
+その他のリスト:
 
- * First item. This item has a rather long
-   line, indented after the line breaks to
-   look nice.
+ * 1項目目 この項目はかなり長い行があり、見
+   栄えを良くするために改行の後に
+   インデントされている。
 
- * Second item. This item has a rather long
-line too, but without the pretty indent.
+ * 2項目目 この項目もかなり長い行があるが、
+きれいなインデントはない
  
-   Second paragraph of second item.
+   2項目目の2段落目
 
-    - sublist,
-    - still in
-    - second item.
+    - サブリスト
+    - まだ
+    - 2項目目です。
 
- * Third item.
+ * 3項目目
 
-Numbered list:
+数字リスト:
 
  1. item one
  2. item two
  3. item three
 
-Definition list:
+定義リスト:
 
-: lions
+: ライオン
 
-  Like a C-program, these also have a main.
+  Cプログラムのようにこれがメイン
   
-: tigers
+: トラ
 
-  Siberian, Bengal, and Tony the.
+  シベリアン、ベンガルそしてトニー・ザ・タイガー
   
-: bears
+: クマ
 
-  These come in both Teddy and Yogi.
+  ティディもヨギも仲間
 ~~~
 
-## Tables
+## テーブル
 
 ~~~
-| Name | Size | Color |
+| 名前 | サイズ |色 |
 | --- | --- | --- |
 | lime | small | green |
 | orange | medium | orange |
 | grapefruit | large | yellow or pink |
 ~~~
 
-You can alter the alignment of the cells using colons in the
-separator line, and also optionally add spaces to align the cells,
-e.g.:
+区切り行にコロンを使ってセルの並びを変更したり、オプションで空白を追加してセルを整列させることもできる、
+
+例: 
 
 ~~~
 | Material | Quantity | Catch-phrase  |
@@ -199,7 +194,7 @@ e.g.:
 ~~~
 
 
-## Footnotes
+## 脚注
 
 ~~~
 The proof is elementary.[^proof]
@@ -210,13 +205,13 @@ The proof is elementary.[^proof]
 ~~~
 
 
-## Spans and Divs
+## スパンとDiv
 
 ~~~
-This is [a span]{.some-class #some-id some-key="some val"}.
+これは [スパン]{.some-class #some-id some-key="some val"}.
 ~~~
 
-and here's a div:
+これは div:
 
 ~~~
 {.some-class #some-other-id some-key="some val"}
@@ -226,7 +221,7 @@ goes here.
 :::
 ~~~
 
-Note the following shorthand:
+これらのショートハンドは:
 
 ~~~
 ::: warning
@@ -234,7 +229,7 @@ Watch out!
 :::
 ~~~
 
-is equivalent to
+以下と等価です。
 
 ~~~
 {.warning}
@@ -243,9 +238,7 @@ Watch out!
 :::
 ~~~
 
-You can append attributes `_onto any inline_{.greenish}`,
-and prefix any block (including just an ordinary paragraph)
-with an attribute:
+属性 `_onto any inline_{.greenish}` を付加することができ、任意のブロック（通常の段落を含む）の前に属性を付けることができます：
 
 ~~~
 {.classy}
@@ -258,10 +251,9 @@ a top hat and cuff links.
 ~~~
 
 
-## Raw Content
+## Raw コンテンツ
 
-djot is not HTML-centric. You can add raw content in any format,
-inline and in blocks, but it must be explicitly marked:
+djotはHTML中心ではありません。どんなフォーマットでもインラインでもブロックでもRaw コンテンツを追加することができますが、明示的にマークされなければなりません：
 
 ~~~~~~
 We had `<sometag>foos</sometag>`{=html} for dinner.
@@ -276,5 +268,4 @@ Then wrapped the leftovers in `\LaTeX`{=latex}.
 ```
 ~~~~~~
 
-Raw content is passed through as-is when rendering the specified
-format, otherwise it's ignored.
+Raw コンテンツは指定されたフォーマットをレンダリングするときにそのまま渡され、そうでない場合は無視される。
