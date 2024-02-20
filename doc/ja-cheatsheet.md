@@ -69,7 +69,7 @@ LaTeX形式を使います `` $`p = mv` `` インライン数式と
 
 `` $$`E = K + U` ``
 
-表示演算用
+演算表示
 
 ## 特殊文字
 
@@ -90,7 +90,7 @@ LaTeX形式を使います `` $`p = mv` `` インライン数式と
 [one more link][]
 ~~~
 
-then later:
+はこうなります。
 
 ~~~
 [foo bar]: https://example.com
@@ -108,7 +108,7 @@ then later:
 [lush forests]: pines.jpg
 ~~~
 
-## Headings
+## 見出し
 
 ~~~
 # H1
