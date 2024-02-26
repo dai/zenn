@@ -263,7 +263,7 @@ See [Footnote], below, for the syntax of the footnote itself.
 
 Line breaks in inline content are treated as “soft” breaks; they may be
 rendered as spaces, or (in contexts where newlines are treated
-semantically like spaces, such as HTML) as as newlines.
+semantically like spaces, such as HTML) as newlines.
 
 To get a hard line break (of the sort represented by HTML’s `<br>`), use
 backslash + newline:
@@ -744,8 +744,9 @@ As with block quotes and list items, subsequent lines in paragraphs can
 
 To attach attributes to a block-level element, put the attributes on the
 line immediately before the block. Block attributes have the same syntax
-as inline attributes, but they must fit on one line. Repeated attribute
-specifiers can be used, and the attributes will accumulate.
+as inline attributes, but if they don't fit on one line, subsequent lines
+must be indented. Repeated attribute specifiers can be used, and
+the attributes will accumulate.
 
     {#water}
     {.important .large}
@@ -770,7 +771,7 @@ adding a numerical suffix.
 However, for the most part you do not need to know the
 identifiers that are assigned to headings, because
 implicit link references are created for all headings.
-Thus, to link to a heading titled "Introduction" in the same
+Thus, to link to a heading titled "Epilogue" in the same
 document, one can simply use a reference link:
 
 ```
