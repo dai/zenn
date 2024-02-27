@@ -572,7 +572,7 @@ ___ (not an emphasized `_` character)</code></pre>
 </div>
 </section>
 <section id="supersubscript" class="level3">
-<h3>上付き/下付き（Super/subscript）</h3>
+<h3>上付きと下付き（Super/subscript）</h3>
 <p>上付き文字は<code>^</code>で囲みます、下付き文字は<code>~</code>です。</p>
 <div class="example">
 <div class="djot">
@@ -666,7 +666,7 @@ ___ (not an emphasized `_` character)</code></pre>
 </section>
 <section id="math" class="level3">
 <h3>数式</h3>
-<p>LaTeX 数式を含めるには、その数式を逐語的なスパンに入れ、その先頭に<code>$</code>（インラインの場合）または<code>$$</code>（数式表示の場合）を付けます:</p>
+<p>LaTeX 数式を含めるには、その数式をVerbatimスパンに入れ、その先頭に<code>$</code>（インラインの場合）または<code>$$</code>（数式表示の場合）を付けます:</p>
 <div class="example">
 <div class="djot">
 <pre><code>Einstein derived $`e=mc^2`.
@@ -1216,15 +1216,11 @@ sub
 </div>
 </section>
 <section id="code-block" class="level3">
-<h3>Code block</h3>
-<p>A code block starts with a line of three or more consecutive backticks,
-optionally followed by a language specifier, but nothing else. (The language
-specifier may optionally be preceded and/or followed by whitespace.)
-The code block ends with a line of backticks equal or greater in length to the
-opening backtick “fence,” or the end of the document or enclosing block,
-if no such line is encountered. Its contents are interpreted as verbatim
-text. If the contents contain a line of backticks, be sure to select a
-longer string of backticks to use as the “fence”:</p>
+<h3>コードブロック</h3>
+<p>コードブロックは3つ以上の連続したバックティックの行で始まります。オプションで言語指定子が付与される場合もありますが、それだけです(オプションで、言語指定子の前および後に空白を付けることができます)。
+コードブロックは、バックティック「フェンス」の開始と同じか、それ以上の数のバックティック行で終了、そのような行がない場合は、文書または囲んでいるブロックの終了で終わります。
+コンテンツはverbatimテキストとして解釈されます。
+コンテンツにバックティック行が含まれている場合は、「フェンス」として用いたバックティックより多い数を指定してください。:</p>
 <div class="example">
 <div class="djot">
 <pre><code>````
@@ -1245,8 +1241,7 @@ x = 5 * 6
 </code></pre>
 </div>
 </div>
-<p>Here is an example of a code block that is implicitly closed when its
-parent container is closed;</p>
+<p>以下は、親コンテナが閉じられたときに暗黙的に閉じられるコードブロックの例です;</p>
 <div class="example">
 <div class="djot">
 <pre><code>&gt; ```
@@ -1267,10 +1262,8 @@ block quote
 </div>
 </section>
 <section id="thematic-break" class="level3">
-<h3>Thematic break</h3>
-<p>A line containing three or more <code>*</code> or <code>-</code> characters, and nothing else
-(except spaces or tabs) is treated is a thematic break (<code>&lt;hr&gt;</code> in HTML).
-Unlike in Markdown, a thematic break may be indented:</p>
+<h3>水平線（hr）</h3>
+<p>3つ以上の<code>*</code>か<code>-</code>を含み、他に何も（空白やタブを除く）処理されない行は、水平線（HTMLでの<code>&lt;hr&gt;</code>）です。Markdownとは異なり、水平線（テーマの区切り）はインデントされる場合があります:</p>
 <div class="example">
 <div class="djot">
 <pre><code>Then they went to sleep.
@@ -1288,10 +1281,8 @@ When they woke up, ...</code></pre>
 </div>
 </section>
 <section id="raw-block" class="level3">
-<h3>Raw block</h3>
-<p>A code block with <code>=FORMAT</code> where the language specification would
-normally go is interpreted as raw content in <code>FORMAT</code> and will be passed
-through verbatim to output in that format. For example:</p>
+<h3>Raw ブロック</h3>
+<p><code>=FORMAT</code>と記述されたコードブロックは、通常言語仕様が記述されるところですが、<code>FORMAT</code>のRawコンテンツとして解釈され、そのフォーマットで出力するためにそのまま渡されます。例えば:</p>
 <div class="example">
 <div class="djot">
 <pre><code>``` =html
