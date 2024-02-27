@@ -1,10 +1,10 @@
 # Djot
 
-Djotは軽量のマークアップ構文です。この機能のほとんどは[commonmark](https://spec.commonmark.org)から派生していますが、commonmarkにおいて構文が複雑で効率的な解析が難しい点をいくつか修正しています。また定義リスト、脚注、表、いくつかの新しい種類のインライン・フォーマット（挿入、削除、ハイライト、上付き、下付き）、数式、スマート句読点、どの要素にも適用できる属性、ブロックレベル、インラインレベル、未加工コンテンツ用の汎用コンテナをサポートしており、commonmarkよりもはるかに機能が充実しています。
+Djotは軽量のマークアップ構文です。この機能のほとんどは[commonmark](https://spec.commonmark.org)から派生していますが、commonmarkにおいて構文が複雑で効率的な解析が難しい点をいくつか修正しています。また定義リスト、脚注、表、いくつかの新しい種類のインライン形式（挿入、削除、ハイライト、上付き、下付き）、数式、スマート句読点、どの要素にも適用できる属性、ブロックレベル、インラインレベル、未加工コンテンツ用の汎用コンテナをサポートしており、commonmarkよりもはるかに機能が充実しています。
 
 このプロジェクトは、私([jgm](https://johnmacfarlane.net/))がエッセイ「[Beyond Markdown](https://johnmacfarlane.net/beyond-markdown.html)」で提案したアイデアのいくつかを実装する試みとして始まりました。(以下の「[理論的根拠](#理論的根拠)」を参照してください。)
 
-このリポジトリには、[構文の説明](https://htmlpreview.github.io/?https://github.com/jgm/djot/blob/master/doc/syntax.html)、[チートシート](https://github.com/dai/djot/blob/main/doc/ja-cheatsheet.md)、およびdjotとMarkdownの主な違いの概要を説明するMarkdownユーザー向けの[クイック スタート](https://github.com/dai/djot/blob/main/doc/ja-quick-start-for-markdown-users.md)が含まれています。
+このリポジトリには、[構文の説明](https://htmlpreview.github.io/?https://github.com/dai/djot/blob/master/doc/ja-syntax.html)、[チートシート](https://github.com/dai/djot/blob/main/doc/ja-cheatsheet.md)、およびdjotとMarkdownの主な違いの概要を説明するMarkdownユーザー向けの[クイック スタート](https://github.com/dai/djot/blob/main/doc/ja-quick-start-for-markdown-users.md)が含まれています。
 
 ローカルにインストールしなくても、[djotプレイグラウンド](https://djot.net/playground/)でdjotを試すことができます。
 
