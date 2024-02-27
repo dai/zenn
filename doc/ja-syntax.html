@@ -343,7 +343,7 @@ font-size: 78%;
 </code></pre>
 </div>
 </div>
-<p>曖昧な場合は、区切り文字をオープナー <code>{</code> またはクローザー <code>}</code> としてマークに使用される場合があります。したがって、<code>{_</code> は <code>_</code> のように動作しますが、強調を開くことしかできません。一方 <code>_}</code> は <code>_</code> のように動作しますが強調を閉じることしかできません。</p>
+<p>曖昧な場合は、区切り文字をオープナー<code>{</code>またはクローザー<code>}</code>としてマークに使用される場合があります。したがって、<code>{_</code>は<code>_</code>のように動作しますが、強調を開くことしかできません。一方<code>_}</code>は<code>_</code>のように動作しますが強調を閉じることしかできません。</p>
 <div class="example">
 <div class="djot">
 <pre><code>{_Emphasized_}
@@ -355,7 +355,7 @@ _}not emphasized{_&lt;/p&gt;
 </code></pre>
 </div>
 </div>
-<p>明示的にマークされたクローザーは明示的にマークされたオープナーとのみ一致し、マークされていないクローザーはマークされていないオープナーのみと一致します（したがって、たとえば <code>{_hi_)</code>は強調を生成しません）。</p>
+<p>明示的にマークされたクローザーは明示的にマークされたオープナーとのみ一致し、マークされていないクローザーはマークされていないオープナーのみと一致します（したがって、たとえば<code>{_hi_)</code>は強調を生成しません）。</p>
 <p>特定のクローザーと一致する可能性のあるオープナーが複数ある場合は、最も近いものが使用されます。例えば：</p>
 <div class="example">
 <div class="djot">
@@ -370,7 +370,7 @@ _}not emphasized{_&lt;/p&gt;
 <section id="ordinary-text" class="level3">
 <h3>通常テキスト</h3>
 <p>特別な意味が与えられていないものはすべてリテラル テキストとして解析されます。</p>
-<p>すべての ASCII 句読点文字（djot で特別な意味を持たないものであっても）はバックスラッシュでエスケープできます。したがって、<code>\*</code> はリテラル文字 <code>*</code> が含まれます。ASCII 句読点文字以外の文字の前のバックスラッシュは、次の例外を除き、リテラルのバックスラッシュとして扱われます。</p>
+<p>すべての ASCII 句読点文字（djotで特別な意味を持たないものであっても）はバックスラッシュでエスケープできます。したがって、<code>\*</code>はリテラル文字<code>*</code>が含まれます。ASCII句読点文字以外の文字の前のバックスラッシュは、次の例外を除き、リテラルのバックスラッシュとして扱われます。</p>
 <ul>
 <li>改行の前（または改行に続くスペースまたはタブの前）のバックスラッシュは、ハード改行として解析されます。この場合、バックスラッシュの前のスペースとタブ文字は無視されます。</li>
 <li>スペースの前のバックスラッシュは非改行スペースとして解析されます。</li>
@@ -379,8 +379,8 @@ _}not emphasized{_&lt;/p&gt;
 <section id="link" class="level3">
 <h3>リンク</h3>
 <p>リンクには、<em>インライン</em>リンクと<em>参照</em>リンクの2種類があります。</p>
-<p>どちらの種類も <code>[ … ]</code> の内側でリンク テキスト（任意のインライン形式が含まれる場合があります）から始まります。</p>
-<p><em>インラインリンク</em>には、括弧内にリンク先<code>(URL)</code>が含まれます。リンクテキストの末尾の <code>]</code> とリンク先を定義するオープナー <code>(</code> の間にスペースを入れてはいけません。</p>
+<p>どちらの種類も<code>[ … ]</code>の内側でリンク テキスト（任意のインライン形式が含まれる場合があります）から始まります。</p>
+<p><em>インラインリンク</em>には、括弧内にリンク先<code>(URL)</code>が含まれます。リンクテキストの末尾の<code>]</code>とリンク先を定義するオープナー<code>(</code>の間にスペースを入れてはいけません。</p>
 <div class="example">
 <div class="djot">
 <pre><code>[My link text](http://example.com)</code></pre>
@@ -438,7 +438,7 @@ _}not emphasized{_&lt;/p&gt;
 </section>
 <section id="image" class="level3">
 <h3>画像</h3>
-<p>画像はリンクと同じように機能しますが、接頭辞 <code>!</code> が付いています。リンクと同様にインライン バリアントと参照バリアントの両方が可能です。</p>
+<p>画像はリンクと同じように機能しますが、接頭辞<code>!</code>が付いています。リンクと同様にインライン バリアントと参照バリアントの両方が可能です。</p>
 <div class="example">
 <div class="djot">
 <pre><code>![picture of a cat](cat.jpg)
@@ -459,7 +459,7 @@ _}not emphasized{_&lt;/p&gt;
 </section>
 <section id="autolink" class="level3">
 <h3>自動リンク</h3>
-<p><code><</code> … <code>></code> で囲まれたURLまたはメールアドレスはハイパーリンクになります。中括弧間の内容は文字通りに扱われます（バックスラッシュ エスケープは使用できません）。</p>
+<p><code><</code> … <code>></code>で囲まれたURLまたはメールアドレスはハイパーリンクになります。中括弧間の内容は文字通りに扱われます（バックスラッシュ エスケープは使用できません）。</p>
 <div class="example">
 <div class="djot">
 <pre><code>&lt;https://pandoc.org/lua-filters&gt;
@@ -474,8 +474,8 @@ _}not emphasized{_&lt;/p&gt;
 <p>URLまたはメール アドレスには改行を含めることはできません。</p>
 </section>
 <section id="verbatim" class="level3">
-<h3>逐語的に（Verbatim）</h3>
-<p>逐語的なコンテンツは、連続するバッククォート文字 (<code>`</code>) の文字列で始まり、同じ長さの連続するバッククォート文字の文字列で終わります。</p>
+<h3>Verbatim</h3>
+<p>Verbatimコンテンツは、連続するバッククォート文字（<code>`</code>）の文字列で始まり、同じ長さの連続するバッククォート文字の文字列で終わります。</p>
 <div class="example">
 <div class="djot">
 <pre><code>``Verbatim with a backtick` character``
@@ -498,7 +498,7 @@ _}not emphasized{_&lt;/p&gt;
 </code></pre>
 </div>
 </div>
-<p>インラインとして解析されるテキストが、終了バッククォート文字列に遭遇する前に終了する場合、逐語的テキストは最後まで続きます。</p>
+<p>インラインとして解析されるテキストが、終了バッククォート文字列に遭遇する前に終了する場合、Verbatimテキストは最後まで続きます。</p>
 <div class="example">
 <div class="djot">
 <pre><code>`foo bar</code></pre>
@@ -510,8 +510,8 @@ _}not emphasized{_&lt;/p&gt;
 </div>
 </section>
 <section id="emphasisstrong" class="level3">
-<h3>強調/強い強調（Emphasis/strong）</h3>
-<p>強調されたインライン コンテンツは <code>_</code> 文字で区切られます。強い強調は <code>*</code> 文字で区切られます。</p>
+<h3>強調と強い強調（Emphasis/strong）</h3>
+<p>強調されたインライン コンテンツは<code>_</code>で囲みます。強い強調は<code>*</code>で囲みます。</p>
 <div class="example">
 <div class="djot">
 <pre><code>_emphasized text_
@@ -524,7 +524,7 @@ _}not emphasized{_&lt;/p&gt;
 </code></pre>
 </div>
 </div>
-<p>また <code>_</code> は、<code>*</code> 直後に空白が続かない場合にのみ強調を開始できます。強調を閉じることができるのは、直前に空白がない場合、および開始文字と終了文字の間に区切り文字以外の文字がある場合のみです。</p>
+<p>また<code>_</code>は<code>*</code>直後に空白が続かない場合にのみ強調を開始できます。強調を閉じることができるのは、直前に空白がない場合、および開始文字と終了文字の間に区切り文字以外の文字がある場合のみです。</p>
 <div class="example">
 <div class="djot">
 <pre><code>_ Not emphasized (spaces). _
@@ -547,7 +547,7 @@ ___ (not an emphasized `_` character)</code></pre>
 </code></pre>
 </div>
 </div>
-<p>中括弧 <code>{</codr> は、<code>_</code> または <code>*</code> オープナーまたはクローザーとして強制的に解釈するために使用できます。</p>
+<p>中括弧<code>{</code>は<code>_</code>または<code>*</code>をオープナーまたはクローザーとして強制的に解釈するために使用できます。</p>
 <div class="example">
 <div class="djot">
 <pre><code>{_ this is emphasized, despite the spaces! _}</code></pre>
@@ -560,7 +560,7 @@ ___ (not an emphasized `_` character)</code></pre>
 </section>
 <section id="highlighted" class="level3">
 <h3>ハイライト（mark）</h3>
-<p><code>{=</code> と <code>=}</code> の間のインライン コンテンツは、強調表示されたテキストとして扱われます（HTMLでの <code>&lt;mark&gt;</code>）。<code>{</code> と <code>}</code> は必須であることに注意してください。</p>
+<p><code>{=</code>と<code>=}</code>の間のインライン コンテンツは、強調表示されたテキストとして扱われます（HTMLでの<code>&lt;mark&gt;</code>）。<code>{</code>と<code>}</code>は必須であることに注意してください。</p>
 <div class="example">
 <div class="djot">
 <pre><code>This is {=highlighted text=}.</code></pre>
@@ -573,7 +573,7 @@ ___ (not an emphasized `_` character)</code></pre>
 </section>
 <section id="supersubscript" class="level3">
 <h3>上付き/下付き（Super/subscript）</h3>
-<p>上付き文字は <code>^</code> で区切られます、下付き文字は <code>~</code>です。</p>
+<p>上付き文字は<code>^</code>で囲みます、下付き文字は<code>~</code>です。</p>
 <div class="example">
 <div class="djot">
 <pre><code>H~2~O and djot^TM^</code></pre>
@@ -595,8 +595,8 @@ ___ (not an emphasized `_` character)</code></pre>
 </div>
 </section>
 <section id="insertdelete" class="level3">
-<h3>挿入/取り消し線（Insert/delete）</h3>
-<p>インラインテキストを挿入済みとしてマークするには、<code>{+</code> と <code>+}</code> を使用します。削除済みとしてマークするには、 <code>{-</code> and <code>-}</code> を使用します。<code>{</code> and <code>}</code> は必須です。</p>
+<h3>挿入と取り消し線（Insert/delete）</h3>
+<p>インラインテキストを挿入済みとしてマークするには、<code>{+</code>と<code>+}</code>を使用します。削除済みとしてマークするには、<code>{-</code>と<code>-}</code>を使用します。<code>{</code>と<code>}</code>は必須です。</p>
 <div class="example">
 <div class="djot">
 <pre><code>My boss is {-mean-}{+nice+}.</code></pre>
@@ -608,10 +608,8 @@ ___ (not an emphasized `_` character)</code></pre>
 </div>
 </section>
 <section id="smart-punctuation" class="level3">
-<h3>Smart punctuation</h3>
-<p>Straight double quotes (<code>&quot;</code>) and single quotes (<code>&#39;</code>) are parsed as curly
-quotes. Djot is pretty good about figuring out from context which
-direction of quote is needed.</p>
+<h3>スマート句読点</h3>
+<p>直線の二重引用符（<code>&quot;</code>）と一重引用符（<code>&#39;</code>）は中引用符として解析されます。Djotは、文脈からどの方向の引用が必要かを判断するのが非常に上手です。</p>
 <div class="example">
 <div class="djot">
 <pre><code>&quot;Hello,&quot; said the spider.
@@ -623,8 +621,7 @@ direction of quote is needed.</p>
 </code></pre>
 </div>
 </div>
-<p>However, its heuristics can be overridden by
-using curly braces to mark a quote as an opener <code>{&quot;</code> or a closer <code>&quot;}</code>:</p>
+<p>ただし、そのヒューリスティックは中かっこを使用した引用符をオープナー<code>{&quot;</code>またはクローザー<code>&quot;}</code>としてマークすることでオーバーライドできます:</p>
 <div class="example">
 <div class="djot">
 <pre><code>&#39;}Tis Socrates&#39; season to be jolly!</code></pre>
@@ -634,7 +631,7 @@ using curly braces to mark a quote as an opener <code>{&quot;</code> or a closer
 </code></pre>
 </div>
 </div>
-<p>If you want a straight quote, use a backslash-escape:</p>
+<p>直接引用符が必要な場合は、バックスラッシュとエスケープを使用します:</p>
 <div class="example">
 <div class="djot">
 <pre><code>5\&#39;11\&quot;</code></pre>
@@ -644,9 +641,9 @@ using curly braces to mark a quote as an opener <code>{&quot;</code> or a closer
 </code></pre>
 </div>
 </div>
-<p>A sequence of three periods is parsed as <em>ellipses</em>.</p>
-<p>A sequence of three hyphens is parsed as an <em>em-dash</em>.</p>
-<p>A sequence of two hyphens is parsed as an <em>en-dash</em>.</p>
+<p>ピリオド3つのシーケンスは<em>ellipses</em>として解析されます。 <code>...</code></p>
+<p>ハイフン3つのシーケンスは<em>em-dash</em>として解析されます。 <code>—</code></p>
+<p>ハイフン2つのシーケンスは<em>en-dash</em>として解析されます。 <code>--</code></p>
 <div class="example">
 <div class="djot">
 <pre><code>57--33 oxen---and no sheep...</code></pre>
@@ -656,10 +653,7 @@ using curly braces to mark a quote as an opener <code>{&quot;</code> or a closer
 </code></pre>
 </div>
 </div>
-<p>Longer sequences of hyphens are divided into em-dashes, en-dashes, and
-hyphens; uniformly, if possible, and preferring em-dashes, when
-uniformity can be achieved either way. (So, 4 hyphens become two
-en-dashes, while 6 hyphens become two em-dashes).</p>
+<p>より長いハイフンのシーケンスは、全角ダッシュ、半角ダッシュ、およびハイフンに分割されます。可能であれば均一に、どちらの方法でも均一性が達成できる場合は、全角ダッシュを使用することを推奨します。（つまり、4つのハイフンは2つの半角ダッシュになり、6つのハイフンは2つの半角ダッシュになります）。</p>
 <div class="example">
 <div class="djot">
 <pre><code>a----b c------d</code></pre>
@@ -671,9 +665,8 @@ en-dashes, while 6 hyphens become two em-dashes).</p>
 </div>
 </section>
 <section id="math" class="level3">
-<h3>Math</h3>
-<p>To include LaTeX math, put the math in a verbatim span and prefix it
-with <code>$</code> (for inline math) or <code>$$</code> (for display math):</p>
+<h3>数式</h3>
+<p>LaTeX 数式を含めるには、その数式を逐語的なスパンに入れ、その先頭に<code>$</code>（インラインの場合）または<code>$$</code>（数式表示の場合）を付けます:</p>
 <div class="example">
 <div class="djot">
 <pre><code>Einstein derived $`e=mc^2`.
@@ -689,8 +682,8 @@ Pythagoras proved
 </div>
 </section>
 <section id="footnote-reference" class="level3">
-<h3>Footnote reference</h3>
-<p>A footnote reference is <code>^</code> + the reference label in square brackets.</p>
+<h3>脚注参照</h3>
+<p>脚注参照は、<code>[^参照ラベル]</code>形式を用います。</p>
 <div class="example">
 <div class="djot">
 <pre><code>Here is the reference.[^foo]
@@ -710,15 +703,12 @@ Pythagoras proved
 </code></pre>
 </div>
 </div>
-<p>See <a href="#footnote">Footnote</a>, below, for the syntax of the footnote itself.</p>
+<p>脚注自体の構文については、以下の<a href="#footnote">脚注</a>を参照してください。</p>
 </section>
 <section id="line-break" class="level3">
-<h3>Line break</h3>
-<p>Line breaks in inline content are treated as “soft” breaks; they may be
-rendered as spaces, or (in contexts where newlines are treated
-semantically like spaces, such as HTML) as as newlines.</p>
-<p>To get a hard line break (of the sort represented by HTML’s <code>&lt;br&gt;</code>), use
-backslash + newline:</p>
+<h3>改行</h3>
+<p>インライン コンテンツ内の改行は「ソフト」改行として扱われます。これらは空白として、または（HTMLなど、改行が意味的に空白のように扱われるコンテキストでは）改行としてレンダリングされる場合があります。</p>
+<p>ハード改行（HTMLでの<code>&lt;br&gt;</code>）を行うには、「バックスラッシュ + 改行」を使用します:</p>
 <div class="example">
 <div class="djot">
 <pre><code>This is a soft
@@ -734,9 +724,8 @@ break.&lt;/p&gt;
 </div>
 </section>
 <section id="comment" class="level3">
-<h3>Comment</h3>
-<p>Material between two <code>%</code> characters in an attribute will be ignored and
-treated as a comment. This allows comments to be added to attributes:</p>
+<h3>コメント</h3>
+<p>属性内で<code>%</code>に挟まれた内容はコメントとして扱われます。これにより属性にコメントを追加できるようになります:</p>
 <div class="example">
 <div class="djot">
 <pre><code>{#ident % later we&#39;ll add a class %}</code></pre>
@@ -745,8 +734,7 @@ treated as a comment. This allows comments to be added to attributes:</p>
 <pre><code></code></pre>
 </div>
 </div>
-<p>But it also serves as a general way to add comments. Just use an
-attribute specifier that contains only a comment:</p>
+<p>ただし、コメントを追加する一般的な方法としても機能します。コメントのみを含む属性指定子を使用してください:</p>
 <div class="example">
 <div class="djot">
 <pre><code>Foo bar {% This is a comment, spanning
@@ -759,11 +747,8 @@ multiple lines %} baz.</code></pre>
 </div>
 </section>
 <section id="symbols" class="level3">
-<h3>Symbols</h3>
-<p>Surrounding a word with <code>:</code> signs creates a “symbol,” which by
-default is just rendered literally but may be treated specially
-by a filter. (For example, a filter could convert symbols to
-emojis. But this is not built into djot.)</p>
+<h3>記号</h3>
+<p>単語を記号<code>:</code>で囲むと「記号」が作成され、デフォルトでは文字通りに表示されるだけですが、フィルターによって特別に処理される場合があります。（たとえば、フィルターを使用して記号を絵文字に変換できます。ただし、これはdjotには組み込まれていません）。</p>
 <div class="example">
 <div class="djot">
 <pre><code>My reaction is :+1: :smiley:.</code></pre>
@@ -775,9 +760,8 @@ emojis. But this is not built into djot.)</p>
 </div>
 </section>
 <section id="raw-inline" class="level3">
-<h3>Raw inline</h3>
-<p>Raw inline content in any format may be included using a verbatim span
-followed by <code>{=FORMAT}</code>:</p>
+<h3>Rawインライン</h3>
+<p>任意の形式のRawインライン コンテンツは、Verbatimスパンとそれに続く次の文字列を使用して含めることができます<code>{=FORMAT}</code>:</p>
 <div class="example">
 <div class="djot">
 <pre><code>This is `&lt;?php echo &#39;Hello world!&#39; ?&gt;`{=html}.</code></pre>
@@ -787,13 +771,11 @@ followed by <code>{=FORMAT}</code>:</p>
 </code></pre>
 </div>
 </div>
-<p>This content is intended to be passed through verbatim when rendering
-the designated format, but ignored otherwise.</p>
+<p>このコンテンツは、指定された形式をレンダリングするときにそのまま渡されるように意図されていますが、それ以外の場合は無視されます。</p>
 </section>
 <section id="span" class="level3">
-<h3>Span</h3>
-<p>Text in square brackets that is not a link or image and is followed
-immediately by an attribute is treated as a generic span.</p>
+<h3>スパン</h3>
+<p>リンクや画像ではなく、直後に属性が続く角括弧内のテキストは、一般的なスパンとして扱われます。</p>
 <div class="example">
 <div class="djot">
 <pre><code>It can be helpful to [read the manual]{.big .red}.</code></pre>
@@ -805,25 +787,17 @@ immediately by an attribute is treated as a generic span.</p>
 </div>
 </section>
 <section id="inline-attributes" class="level3">
-<h3>Inline attributes</h3>
-<p>Attributes are put inside curly braces and must <em>immediately follow</em> the
-inline element to which they are attached (with no intervening
-whitespace).</p>
-<p>Inside the curly braces, the following syntax is possible:</p>
+<h3>インライン属性</h3>
+<p>属性は中括弧内に配置され、属性を付加したいインライン要素の<em>直後</em>に置く必要があります（空白は入れません）。</p>
+<p>中括弧内では、次の構文を使用できます:</p>
 <ul>
-<li><code>.foo</code> specifies <code>foo</code> as a class. Multiple classes may be given in
-this way; they will be combined.</li>
-<li><code>#foo</code> specifies <code>foo</code> as an identifier. An element may have only one
-identifier; if multiple identifiers are given, the last one is used.</li>
-<li><code>key=&quot;value&quot;</code> or <code>key=value</code> specifies a key-value attribute. Quotes
-are not needed when the value consists entirely of ASCII alphanumeric
-characters or <code>_</code> or <code>:</code> or <code>-</code>. Backslash escapes may be used inside
-quoted values.</li>
-<li><code>%</code> begins a comment, which ends with the next <code>%</code> or the end of the
-attribute (<code>}</code>).</li>
+<li><code>.foo</code>は<code>foo</code>クラスとして指定します。この方法で複数のクラスを指定でき、それらは結合されます。</li>
+<li><code>#foo</code>は<code>foo</code>識別子として指定します。要素は識別子を1つだけ持つことができます。複数の識別子が指定された場合は、最後の識別子が使用されます。</li>
+<li><code>key=&quot;value&quot;</code>または、<code>key=value</code>はkey-value属性を指定します。値がすべてASCII英数字で構成されている場合、<code>_</code>、<code>:</code>、<code>-</code>で構成されている場合、引用符は必要ありません。バックスラッシュエスケープは引用符で囲まれた値の内部で使用できます。</li>
+<li><code>%</code>コメントが始まり、次の属性<code>%</code>または属性の終わり（<code>}</code>）で終わります。</li>
 </ul>
-<p>Attribute specifiers may contain line breaks.</p>
-<p>Example:</p>
+<p>属性指定子には改行が含まれる場合があります。</p>
+<p>例:</p>
 <div class="example">
 <div class="djot">
 <pre><code>An attribute on _emphasized text_{#foo
@@ -834,8 +808,7 @@ attribute (<code>}</code>).</li>
 </code></pre>
 </div>
 </div>
-<p>Attribute specifiers may be “stacked,” in which case they will be
-combined. Thus,</p>
+<p>属性指定子は "stacked"（積み重ねること）ができ、その場合は結合されます。したがって、</p>
 <div class="example">
 <div class="djot">
 <pre><code>avant{lang=fr}{.blue}</code></pre>
@@ -845,7 +818,7 @@ combined. Thus,</p>
 </code></pre>
 </div>
 </div>
-<p>is the same as</p>
+<p>は、以下と同じです</p>
 <div class="example">
 <div class="djot">
 <pre><code>avant{lang=fr .blue}</code></pre>
@@ -858,35 +831,18 @@ combined. Thus,</p>
 </section>
 </section>
 <section id="block-syntax" class="level2">
-<h2>Block syntax</h2>
-<p>As in commonmark, block structure can be discerned prior to inline
-parsing and takes priority over inline structure.</p>
-<p>Indeed, blocks can be parsed line by line with no backtracking. The
-contribution a line makes to block-level structure never depends on a
-future line.</p>
-<p>Indentation is only significant for list item or footnote nesting.</p>
-<p>Block-level items should be separated from one another by blank lines.
-There are some cases in which two block-level elements can be
-adjacent—e.g., a thematic break or fenced code block can be directly
-followed by a paragraph. Indeed, the possibility of line-by-line parsing
-precludes requiring a blank line after a block-level element. But for
-readability, we recommend <em>always</em> separating block-level elements by
-blank lines. Paragraphs can never be interrupted by other block-level
-elements, and must always end with a blank line (or the end of the
-document or containing element).</p>
+<h2>ブロック構文</h2>
+<p>commonmarkと同様に、ブロック構造はインライン解析の前に識別でき、インライン構造よりも優先されます。</p>
+<p>実際、ブロックはバックトラックなしで行ごとに解析できます。行がブロック レベルの構造に与える影響は、将来の行に依存することはありません。</p>
+<p>インデントは、リスト項目または脚注のネストの場合にのみ重要です。</p>
+<p>ブロックレベルの項目は空白行で区切る必要があります。2つのブロック レベル要素が隣接する場合があります。たとえば、水平線またはフェンスで囲まれたコード ブロックの直後に段落が続くことがあります。実際、行ごとに解析できる可能性があるため、ブロックレベル要素の後に空白行を入れる必要はありません。ただし、読みやすさを考慮して、ブロックレベルの要素は<em>常に</em>空行で区切ることをお勧めします。段落は他のブロックレベルの要素によって中断されることはなく、常に空行（または文書またはそれを含む要素の終わり）で終了する必要があります。</p>
 <section id="paragraph" class="level3">
-<h3>Paragraph</h3>
-<p>A paragraph is a sequence of nonblank lines that does not meet the
-condition for being one of the other block-level elements. The textual
-content is parsed as a sequence of inline elements. Newlines are treated
-as soft breaks and interpreted like spaces in formatted output. A
-paragraph ends with a blank line or the end of the document.</p>
+<h3>段落</h3>
+<p>段落は、他のブロックレベル要素の1つであるための条件を満たさない、一連の非空白行です。テキスト コンテンツは、一連のインライン要素として解析されます。改行はソフト改行として扱われ、書式設定された出力では空白と同様に解釈されます。段落は空白行または文書の終わりで終わります。</p>
 </section>
 <section id="heading" class="level3">
-<h3>Heading</h3>
-<p>A heading starts with a sequence of one or more <code>#</code> characters,
-followed by whitespace. The number of <code>#</code> characters defines
-the heading level. The following text is parsed as inline content.</p>
+<h3>見出し</h3>
+<p>見出しは1つ以上の<code>#</code>文字シーケンスで始まり、その後に空白が続きます。<code>#</code>文字の数によって見出しレベルは定義されます。次のテキストはインライン コンテンツとして解析されます。</p>
 <div class="example">
 <div class="djot">
 <pre><code>## A level _two_ heading!</code></pre>
@@ -898,11 +854,9 @@ the heading level. The following text is parsed as inline content.</p>
 </code></pre>
 </div>
 </div>
-<p>The heading text may spill over onto following lines, which may
-also be preceded by the same number of <code>#</code> characters (but
-these can also be left off).</p>
-<p>The heading ends when a blank line (or the end of the document
-or enclosing container) is encountered.</p>
+<p>
+見出しテキストは後続の行にまたがる場合があり、その前に同じ数の<code>#</code>文字が続く場合もあります（ただし、省略することもできます）。</p>
+<p>見出しは、空行（または文書またはそれを囲んでいるコンテナの終わり）に達すると終了します。</p>
 <div class="example">
 <div class="djot">
 <pre><code># A heading that
@@ -941,10 +895,8 @@ three lines&lt;/h1&gt;
 </div>
 </section>
 <section id="block-quote" class="level3">
-<h3>Block quote</h3>
-<p>A block quote is a sequence of lines, each of which begins with <code>&gt;</code>,
-followed either by a space or by the end of the line. The contents of
-the block quote (minus initial <code>&gt;</code>) are parsed as block-level content.</p>
+<h3>引用ブロック（Block quote）</h3>
+<p>引用ブロックは、各行が<code>&gt;</code>で始まり、その後に空白または行末が続く一連の行です。引用ブロック内のコンテンツ（最初の<code>&gt;</code>を除く）は、ブロックレベルのコンテンツとして解析されます。</p>
 <div class="example">
 <div class="djot">
 <pre><code>&gt; This is a block quote.
@@ -967,9 +919,7 @@ list in it.
 </code></pre>
 </div>
 </div>
-<p>As in Markdown, it is possible to “lazily” omit the <code>&gt;</code> prefixes from
-regular paragraph lines inside the block quote, except in front of the
-first line of a paragraph:</p>
+<p>Markdownと同様に、段落はじまり行の前を除き、引用ブロック内の通常段落行から<code>&gt;</code>プレフィックスを省略することができます:</p>
 <div class="example">
 <div class="djot">
 <pre><code>&gt; This is a block
@@ -985,10 +935,8 @@ quote.&lt;/p&gt;
 </div>
 </section>
 <section id="list-item" class="level3">
-<h3>List item</h3>
-<p>A list item consists of a list marker followed by a space (or a newline)
-followed by one or more lines, indented relative to the list marker. For
-example:</p>
+<h3>リスト項目</h3>
+<p>リスト項目は、リスト マーカー、空白（または改行）、リスト マーカーに対してインデントされた1つ以上の行で構成されます。例えば:</p>
 <div class="example">
 <div class="djot">
 <pre><code>1.  This is a
@@ -1009,8 +957,7 @@ list item.&lt;/p&gt;
 </code></pre>
 </div>
 </div>
-<p>Indentation may be “lazily” omitted on paragraph lines following the
-first line of a paragraph:</p>
+<p>段落はじめの行に続く段落行では、インデントが省略される場合があります:</p>
 <div class="example">
 <div class="djot">
 <pre><code>1.  This is a
@@ -1031,12 +978,12 @@ list item.&lt;/p&gt;
 </code></pre>
 </div>
 </div>
-<p>The following basic types of list markers are available:</p>
+<p>次の基本的なタイプのリスト マーカーを使用できます:</p>
 <table>
 <thead>
 <tr class="header">
-<th>Marker</th>
-<th>List type</th>
+<th>マーカー</th>
+<th>リストの種類</th>
 </tr>
 </thead>
 <tbody>
@@ -1054,88 +1001,82 @@ list item.&lt;/p&gt;
 </tr>
 <tr class="even">
 <td><code>1.</code></td>
-<td>ordered, decimal-enumerated, followed by period</td>
+<td>順序付き、10進数の列挙、直後にピリオド</td>
 </tr>
 <tr class="odd">
 <td><code>1)</code></td>
-<td>ordered, decimal-enumerated, followed by parenthesis</td>
+<td>順序付き、10進数の列挙、直後に終わり括弧</td>
 </tr>
 <tr class="even">
 <td><code>(1)</code></td>
-<td>ordered, decimal-enumerated, enclosed in parentheses</td>
+<td>順序付き、10進数の列挙、括弧で挟む</td>
 </tr>
 <tr class="odd">
 <td><code>a.</code></td>
-<td>ordered, lower-alpha-enumerated, followed by period</td>
+<td>順序付き、アルファベット小文字列挙、直後にピリオド</td>
 </tr>
 <tr class="even">
 <td><code>a)</code></td>
-<td>ordered, lower-alpha-enumerated, followed by parenthesis</td>
+<td>順序付き、アルファベット小文字列挙、直後に終わり括弧</td>
 </tr>
 <tr class="odd">
 <td><code>(a)</code></td>
-<td>ordered, lower-alpha-enumerated, enclosed in parentheses</td>
+<td>順序付き、アルファベット小文字列挙、括弧で挟む</td>
 </tr>
 <tr class="even">
 <td><code>A.</code></td>
-<td>ordered, upper-alpha-enumerated, followed by period</td>
+<td>順序付き、アルファベット大文字列挙、直後にピリオド</td>
 </tr>
 <tr class="odd">
 <td><code>A)</code></td>
-<td>ordered, upper-alpha-enumerated, followed by parenthesis</td>
+<td>順序付き、アルファベット大文字列挙、直後に終わり括弧</td>
 </tr>
 <tr class="even">
 <td><code>(A)</code></td>
-<td>ordered, upper-alpha-enumerated, enclosed in parentheses</td>
+<td>順序付き、アルファベット大文字列挙、括弧で挟む</td>
 </tr>
 <tr class="odd">
 <td><code>i.</code></td>
-<td>ordered, lower-roman-enumerated, followed by period</td>
+<td>順序付き、ローマ数字小文字列挙、直後にピリオド</td>
 </tr>
 <tr class="even">
 <td><code>i)</code></td>
-<td>ordered, lower-roman-enumerated, followed by parenthesis</td>
+<td>順序付き、ローマ数字小文字列挙、直後に終わり括弧</td>
 </tr>
 <tr class="odd">
 <td><code>(i)</code></td>
-<td>ordered, lower-roman-enumerated, enclosed in parentheses</td>
+<td>順序付き、ローマ数字小文字列挙、括弧で挟む</td>
 </tr>
 <tr class="even">
 <td><code>I.</code></td>
-<td>ordered, upper-roman-enumerated, followed by period</td>
+<td>順序付き、ローマ数字大文字列挙、直後にピリオド</td>
 </tr>
 <tr class="odd">
 <td><code>I)</code></td>
-<td>ordered, upper-roman-enumerated, followed by parenthesis</td>
+<td>順序付き、ローマ数字大文字列挙、直後に終わり括弧</td>
 </tr>
 <tr class="even">
 <td><code>(I)</code></td>
-<td>ordered, upper-roman-enumerated, enclosed in parentheses</td>
+<td>順序付き、ローマ数字大文字列挙、括弧で挟む</td>
 </tr>
 <tr class="odd">
 <td><code>:</code></td>
-<td>definition</td>
+<td>定義語</td>
 </tr>
 <tr class="even">
 <td><code>- [ ]</code></td>
-<td>task</td>
+<td>タスク</td>
 </tr>
 </tbody>
 </table>
-<p>Ordered list markers can use any number in the series: thus, <code>(xix)</code> and
-<code>v)</code> are both valid lower-roman-enumerated markers, and <code>v)</code> is <em>also</em> a
-valid lower-alpha-enumerated marker.</p>
+<p>順序付きリスト マーカーは、一連の任意の番号を使用できます: したがって<code>(xix)</code>および<code>v)</code>は、どちらも有効なローマ字小文字列挙マーカーであり、<code>v)</code>は有効なアルファベット小文字列挙マーカー<em>でも</em>あります。</p>
 <section id="task-list-item" class="level4">
-<h4>Task list item</h4>
-<p>A bullet list item that begins with <code>[ ]</code>, <code>[X]</code>, or <code>[x]</code> followed by a
-space is a task list item, either unchecked (<code>[ ]</code>) or checked (<code>[X]</code> or
-<code>[x]</code>).</p>
+<h4>タスクリスト項目</h4>
+<p><code>[ ]</code>、<code>[X]</code>または<code>[x]</code>の後に空白で続く箇条書きリスト項目は、チェックされていない（<code>[ ]</code>）かチェックされている（<code>[X]</code>または<code>[x]</code>）かのタスクリスト項目です。</p>
 </section>
 <section id="definition-list-item" class="level4">
-<h4>Definition list item</h4>
-<p>In a definition list item, the first line or lines after the <code>:</code> marker
-is parsed as inline content and taken to be the <em>term</em> defined. Any
-further blocks included in the item are assumed to be the <em>definition</em>.</p>
+<h4>定義リスト項目</h4>
+<p>定義リスト項目では、マーカー<code>:</code>の後の最初の行がインライン コンテンツとして解析され、定義された<em>用語</em>とみなされ、項目に含まれるそれ以上のブロックは<em>定義</em>とみなされます。</p>
 <div class="example">
 <div class="djot">
 <pre><code>: orange
@@ -1155,11 +1096,8 @@ further blocks included in the item are assumed to be the <em>definition</em>.</
 </section>
 </section>
 <section id="list" class="level3">
-<h3>List</h3>
-<p>A list is simply a sequence of list items of the same type (where each
-line in the table above defines a type). Note that changing ordered list
-style or bullet will stop one list and start a new one.
-Hence the following list items get grouped into four distinct lists:</p>
+<h3>リスト</h3>
+<p>リストは、単純に同じタイプのリスト項目シーケンスです（上の表の各行が種類を定義します）。順序付きリストのスタイルまたは箇条書きを変更すると、1つのリストが停止し、新しいリストが開始されることに注意してください。したがって、次のリスト項目は4つの異なるリストにグループ化されます:</p>
 <div class="example">
 <div class="djot">
 <pre><code>i) one
@@ -1191,9 +1129,7 @@ bullet (style change)
 </code></pre>
 </div>
 </div>
-<p>Sometimes list items are ambiguous as to type. In this case the
-ambiguity will be resolved in such a way as to continue the list, if
-possible. For example, in</p>
+<p>リスト項目の種類が曖昧な場合があります。この場合、可能であればリストを継続する方法で曖昧さが解決されます。たとえば、</p>
 <div class="example">
 <div class="djot">
 <pre><code>i. item
@@ -1211,12 +1147,8 @@ next item
 </code></pre>
 </div>
 </div>
-<p>the first item is ambiguous between lower-roman-enumerated and
-lower-alpha-enumerated. But only the latter interpretation works for the
-next item, so we prefer the reading that allows us to have one
-continuous list rather than two separate ones.</p>
-<p>The start number of an ordered list will be determined by the number of
-its first item. The numbers of subsequent items are irrelevant.</p>
+<p>最初の項目は、ローマ字小文字列挙とアルファベット小文字列挙の間で曖昧です。ただし、次の項目では後者の解釈のみが機能するため、2つの別々のリストよりも1つの連続したリストを作成できる読み方を好みます。</p>
+<p>順序付きリストの開始番号は、その最初の項目の番号によって決まります。後続の項目の数は関係ありません。</p>
 <div class="example">
 <div class="djot">
 <pre><code>5) five
@@ -1234,9 +1166,7 @@ six
 </code></pre>
 </div>
 </div>
-<p>A list is classed as <em>tight</em> if it does not contain blank lines between
-items, or between blocks inside an item. Blank lines at the start or end
-of a list do not count against tightness.</p>
+<p>項目間または項目内のブロック間に空白行が含まれていないリストは、<em>厳密に</em>（tightとして）分類されます。リストの先頭または末尾にある空白行は、厳密さの対象にはなりません。</p>
 <div class="example">
 <div class="djot">
 <pre><code>- one
@@ -1265,9 +1195,7 @@ sub
 </code></pre>
 </div>
 </div>
-<p>A list that is not tight is <em>loose</em>. The intended significance
-of this distinction is that tight lists should be rendered with
-less space between items.</p>
+<p>厳密でないリストは<em>緩い</em>（looseな）リストです。この区別の意図された重要性は、項目間の空白を減らして厳密（タイト）なリストを表示する必要があることです。</p>
 <div class="example">
 <div class="djot">
 <pre><code>- one
