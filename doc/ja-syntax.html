@@ -459,7 +459,7 @@ _}not emphasized{_&lt;/p&gt;
 </section>
 <section id="autolink" class="level3">
 <h3>自動リンク</h3>
-<p><code><</code> … <code>></code> で囲まれたURLまたはメールアドレスはハイパーリンクになります。尖中括弧間の内容は文字通りに扱われます（バックスラッシュ エスケープは使用できません）。</p>
+<p><code><</code> … <code>></code> で囲まれたURLまたはメールアドレスはハイパーリンクになります。中括弧間の内容は文字通りに扱われます（バックスラッシュ エスケープは使用できません）。</p>
 <div class="example">
 <div class="djot">
 <pre><code>&lt;https://pandoc.org/lua-filters&gt;
@@ -573,7 +573,7 @@ ___ (not an emphasized `_` character)</code></pre>
 </section>
 <section id="supersubscript" class="level3">
 <h3>上付き/下付き（Super/subscript）</h3>
-<p>Superscript is delimited by <code>^</code> characters, subscript by <code>~</code>.</p>
+<p>上付き文字は <code>^</code> で区切られます、下付き文字は <code>~</code>です。</p>
 <div class="example">
 <div class="djot">
 <pre><code>H~2~O and djot^TM^</code></pre>
@@ -583,7 +583,7 @@ ___ (not an emphasized `_` character)</code></pre>
 </code></pre>
 </div>
 </div>
-<p>Curly braces may be used, but are not required:</p>
+<p>中括弧を使用することもできますが、必須ではありません:</p>
 <div class="example">
 <div class="djot">
 <pre><code>H{~one two buckle my shoe~}O</code></pre>
@@ -595,9 +595,8 @@ ___ (not an emphasized `_` character)</code></pre>
 </div>
 </section>
 <section id="insertdelete" class="level3">
-<h3>Insert/delete</h3>
-<p>To mark inline text as inserted, use <code>{+</code> and <code>+}</code>. To mark it as
-deleted, use <code>{-</code> and <code>-}</code>. The <code>{</code> and <code>}</code> are mandatory.</p>
+<h3>挿入/取り消し線（Insert/delete）</h3>
+<p>インラインテキストを挿入済みとしてマークするには、<code>{+</code> と <code>+}</code> を使用します。削除済みとしてマークするには、 <code>{-</code> and <code>-}</code> を使用します。<code>{</code> and <code>}</code> は必須です。</p>
 <div class="example">
 <div class="djot">
 <pre><code>My boss is {-mean-}{+nice+}.</code></pre>
