@@ -260,11 +260,11 @@ font-size: 78%;
 <li><a href="#line-break" id="toc-line-break">改行</a></li>
 <li><a href="#comment" id="toc-comment">コメント</a></li>
 <li><a href="#symbols" id="toc-symbols">シンボル</a></li>
-<li><a href="#raw-inline" id="toc-raw-inline">Raw inline</a></li>
-<li><a href="#span" id="toc-span">Span</a></li>
-<li><a href="#inline-attributes" id="toc-inline-attributes">Inline attributes</a></li>
+<li><a href="#raw-inline" id="toc-raw-inline">Raw インライン</a></li>
+<li><a href="#span" id="toc-span">スパン</a></li>
+<li><a href="#inline-attributes" id="toc-inline-attributes">インライン属性</a></li>
 </ul></li>
-<li><a href="#block-syntax" id="toc-block-syntax">Block syntax</a>
+<li><a href="#block-syntax" id="toc-block-syntax">ブロック構文</a>
 <ul>
 <li><a href="#paragraph" id="toc-paragraph">Paragraph</a></li>
 <li><a href="#heading" id="toc-heading">Heading</a></li>
@@ -346,9 +346,7 @@ font-size: 78%;
 </code></pre>
 </div>
 </div>
-<p>In cases of ambiguity, <code>{</code> and <code>}</code> may be used to mark delimiters as
-openers or closers. Thus <code>{_</code> behaves like <code>_</code> but can <em>only</em> open
-emphasis, while <code>_}</code> behaves like <code>_</code> but can <em>only</em> close emphasis:</p>
+曖昧な場合は、区切り文字をオープナー <code>{</code> またはクローザー <code>}</code> としてマークに使用される場合があります。したがって、<code>{_</code> は <code>_</code> のように動作しますが、強調を開くことしかできません。一方 <code>_}</code> は <code>_</code> のように動作しますが強調を閉じることしかできません。</p>
 <div class="example">
 <div class="djot">
 <pre><code>{_Emphasized_}
@@ -360,11 +358,9 @@ _}not emphasized{_&lt;/p&gt;
 </code></pre>
 </div>
 </div>
-<p>Explicitly marked closers can only match explicitly marked
-openers, and non-marked closers can only match non-marked
-openers (so, for example, <code>{_hi_</code>) doesn’t produce emphasis).</p>
-<p>When there are multiple openers that might be matched with a
-given closer, the closest one is used. For example:</p>
+<p>明示的にマークされたクローザーは明示的にマークされたオープナーとのみ一致し、マークされていないクローザーはマークされていないオープナーのみと一致します（したがって、たとえば <code>{_hi_</code>) は強調を生成しません）。</p>
+<p>
+特定のクローザーと一致する可能性のあるオープナーが複数ある場合は、最も近いものが使用されます。例えば：</p>
 <div class="example">
 <div class="djot">
 <pre><code>*not strong *strong*</code></pre>
@@ -376,28 +372,19 @@ given closer, the closest one is used. For example:</p>
 </div>
 </section>
 <section id="ordinary-text" class="level3">
-<h3>Ordinary text</h3>
-<p>Anything that isn’t given a special meaning is parsed as literal text.</p>
-<p>All ASCII punctuation characters (even those that have no special
-meaning in djot) may be backslash-escaped. Thus, <code>\*</code> includes a
-literal <code>*</code> character. Backslashes before characters other than ASCII
-punctuation characters are just treated as literal backslashes, with the
-following exceptions:</p>
+<h3>通常テキスト</h3>
+<p>特別な意味が与えられていないものはすべてリテラル テキストとして解析されます。</p>
+<p>すべての ASCII 句読点文字（djot で特別な意味を持たないものであっても）はバックスラッシュでエスケープできます。したがって、<code>\*</code> はリテラル文字 <code>*</code> が含まれます。ASCII 句読点文字以外の文字の前のバックスラッシュは、次の例外を除き、リテラルのバックスラッシュとして扱われます。</p>
 <ul>
-<li>Backslash before a newline (or before spaces or tabs followed
-by a newline) is parsed as a hard line break. Spaces and tab
-characters before the backslash are ignored in this case.</li>
-<li>Backslash before a space is parsed as a nonbreaking space.</li>
+<li>改行の前（または改行に続くスペースまたはタブの前）のバックスラッシュは、ハード改行として解析されます。この場合、バックスラッシュの前のスペースとタブ文字は無視されます。</li>
+<li>スペースの前のバックスラッシュは非改行スペースとして解析されます。</li>
 </ul>
 </section>
 <section id="link" class="level3">
-<h3>Link</h3>
-<p>There are two kinds of links, <em>inline</em> links and <em>reference</em> links.</p>
-<p>Both kinds start with the link text (which may contain arbitrary inline
-formatting) inside <code>[</code> … <code>]</code> delimiters.</p>
-<p><em>Inline links</em> then contain the link destination (URL) in parentheses.
-There should be no space between the <code>]</code> at the end of the link text and
-the open <code>(</code> defining the link destination.</p>
+<h3>リンク</h3>
+<p>リンクには、<em>インライン</em>リンクと<em>参照</em>リンクの2種類があります。</p>
+<p>どちらの種類も <code>[ … ]</code> の内側でリンク テキスト（任意のインライン形式が含まれる場合があります）から始まります。</p>
+<p><em>インラインリンク</em>には、括弧内にリンク先<code>(URL)</code>が含まれます。リンクテキストの末尾の <code>]</code> とリンク先を定義するオープナー <code>(</code> の間にスペースを入れてはいけません。</p>
 <div class="example">
 <div class="djot">
 <pre><code>[My link text](http://example.com)</code></pre>
