@@ -260,28 +260,28 @@ font-size: 78%;
 <li><a href="#line-break" id="toc-line-break">改行</a></li>
 <li><a href="#comment" id="toc-comment">コメント</a></li>
 <li><a href="#symbols" id="toc-symbols">シンボル</a></li>
-<li><a href="#raw-inline" id="toc-raw-inline">Raw インライン</a></li>
+<li><a href="#raw-inline" id="toc-raw-inline">Rawインライン</a></li>
 <li><a href="#span" id="toc-span">スパン</a></li>
 <li><a href="#inline-attributes" id="toc-inline-attributes">インライン属性</a></li>
 </ul></li>
 <li><a href="#block-syntax" id="toc-block-syntax">ブロック構文</a>
 <ul>
-<li><a href="#paragraph" id="toc-paragraph">Paragraph</a></li>
-<li><a href="#heading" id="toc-heading">Heading</a></li>
-<li><a href="#block-quote" id="toc-block-quote">Block quote</a></li>
-<li><a href="#list-item" id="toc-list-item">List item</a></li>
-<li><a href="#list" id="toc-list">List</a></li>
-<li><a href="#code-block" id="toc-code-block">Code block</a></li>
-<li><a href="#thematic-break" id="toc-thematic-break">Thematic break</a></li>
-<li><a href="#raw-block" id="toc-raw-block">Raw block</a></li>
+<li><a href="#paragraph" id="toc-paragraph">段落</a></li>
+<li><a href="#heading" id="toc-heading">見出し</a></li>
+<li><a href="#block-quote" id="toc-block-quote">引用ブロック</a></li>
+<li><a href="#list-item" id="toc-list-item">リスト項目</a></li>
+<li><a href="#list" id="toc-list">リスト</a></li>
+<li><a href="#code-block" id="toc-code-block">コードブロック</a></li>
+<li><a href="#thematic-break" id="toc-thematic-break">水平線（hr）</a></li>
+<li><a href="#raw-block" id="toc-raw-block">Rawブロック</a></li>
 <li><a href="#div" id="toc-div">Div</a></li>
-<li><a href="#pipe-table" id="toc-pipe-table">Pipe table</a></li>
-<li><a href="#reference-link-definition" id="toc-reference-link-definition">Reference link definition</a></li>
-<li><a href="#footnote" id="toc-footnote">Footnote</a></li>
-<li><a href="#block-attributes" id="toc-block-attributes">Block attributes</a></li>
-<li><a href="#links-to-headings" id="toc-links-to-headings">Links to headings</a></li>
+<li><a href="#pipe-table" id="toc-pipe-table">パイプテーブル</a></li>
+<li><a href="#reference-link-definition" id="toc-reference-link-definition">参照リンクの定義</a></li>
+<li><a href="#footnote" id="toc-footnote">脚注</a></li>
+<li><a href="#block-attributes" id="toc-block-attributes">ブロックの属性</a></li>
+<li><a href="#links-to-headings" id="toc-links-to-headings">見出しへのリンク</a></li>
 </ul></li>
-<li><a href="#nesting-limits" id="toc-nesting-limits">Nesting limits</a></li>
+<li><a href="#nesting-limits" id="toc-nesting-limits">ネストの制限</a></li>
 </ul></li>
 </ul>
 </nav>
@@ -332,10 +332,7 @@ font-size: 78%;
 </code></pre>
 </div>
 </div>
-<p>does not (because the strong emphasis closes over the <code>[</code> delimiter).
-
 <p>リンクは無効です（強い強調が区切り文字<code>[</code>を超えて終了するため）。</p>
-
 <p>重複するコンテナは除外されますが、<em>ネスト（入れ子に）</em>されたコンテナは問題ありません。</p>
 <div class="example">
 <div class="djot">
@@ -346,7 +343,7 @@ font-size: 78%;
 </code></pre>
 </div>
 </div>
-曖昧な場合は、区切り文字をオープナー <code>{</code> またはクローザー <code>}</code> としてマークに使用される場合があります。したがって、<code>{_</code> は <code>_</code> のように動作しますが、強調を開くことしかできません。一方 <code>_}</code> は <code>_</code> のように動作しますが強調を閉じることしかできません。</p>
+<p>曖昧な場合は、区切り文字をオープナー <code>{</code> またはクローザー <code>}</code> としてマークに使用される場合があります。したがって、<code>{_</code> は <code>_</code> のように動作しますが、強調を開くことしかできません。一方 <code>_}</code> は <code>_</code> のように動作しますが強調を閉じることしかできません。</p>
 <div class="example">
 <div class="djot">
 <pre><code>{_Emphasized_}
@@ -358,9 +355,8 @@ _}not emphasized{_&lt;/p&gt;
 </code></pre>
 </div>
 </div>
-<p>明示的にマークされたクローザーは明示的にマークされたオープナーとのみ一致し、マークされていないクローザーはマークされていないオープナーのみと一致します（したがって、たとえば <code>{_hi_</code>) は強調を生成しません）。</p>
-<p>
-特定のクローザーと一致する可能性のあるオープナーが複数ある場合は、最も近いものが使用されます。例えば：</p>
+<p>明示的にマークされたクローザーは明示的にマークされたオープナーとのみ一致し、マークされていないクローザーはマークされていないオープナーのみと一致します（したがって、たとえば <code>{_hi_)</code>は強調を生成しません）。</p>
+<p>特定のクローザーと一致する可能性のあるオープナーが複数ある場合は、最も近いものが使用されます。例えば：</p>
 <div class="example">
 <div class="djot">
 <pre><code>*not strong *strong*</code></pre>
@@ -394,9 +390,7 @@ _}not emphasized{_&lt;/p&gt;
 </code></pre>
 </div>
 </div>
-<p>The URL may be split over multiple lines; in that case, the line breaks
-and any leading and trailing space is ignored, and the lines are
-concatenated together.</p>
+<p>URLは複数行に分かれている場合があります。この場合改行が行われ先頭と末尾のスペースは無視され行が連結されます。</p>
 <div class="example">
 <div class="djot">
 <pre><code>[My link text](http://example.com?product_number=234234234234
@@ -407,9 +401,7 @@ concatenated together.</p>
 </code></pre>
 </div>
 </div>
-<p><em>Reference links</em> use a reference label in square brackets, instead of a
-destination in parentheses. This must come immediately after the link
-text:</p>
+<p><em>参照リンク</em>では括弧内の宛先ではなく角括弧内の参照ラベルを使用します。これはリンク テキストの直後に置く必要があります。</p>
 <div class="example">
 <div class="djot">
 <pre><code>[My link text][foo bar]
@@ -421,10 +413,7 @@ text:</p>
 </code></pre>
 </div>
 </div>
-<p>The reference label should be defined somewhere in the document: see
-<a href="#reference-link-definition">Reference link definition</a>, below. However, the parsing of the
-link is “local” and does not depend on whether the label is
-defined:</p>
+<p>参照ラベルはドキュメント内のどこかで定義する必要があります。以下の<a href="#reference-link-definition">参照リンクの定義</a>を参照してください。ただし、リンクの解析は「ローカル」でありラベルが定義されているかどうかには依存しません。</p>
 <div class="example">
 <div class="djot">
 <pre><code>[foo][bar]</code></pre>
@@ -434,8 +423,7 @@ defined:</p>
 </code></pre>
 </div>
 </div>
-<p>If the label is empty, then the link text will be taken to be the
-reference label as well as the link text:</p>
+<p>ラベルがない場合、リンク テキストはリンク テキストだけでなく参照ラベルとしても解釈されます:</p>
 <div class="example">
 <div class="djot">
 <pre><code>[My link text][]
@@ -449,9 +437,8 @@ reference label as well as the link text:</p>
 </div>
 </section>
 <section id="image" class="level3">
-<h3>Image</h3>
-<p>Images work just like links, but have a <code>!</code> prefixed. As with links,
-both inline and reference variants are possible.</p>
+<h3>画像</h3>
+<p>画像はリンクと同じように機能しますが、接頭辞 <code>!</code> が付いています。リンクと同様にインライン バリアントと参照バリアントの両方が可能です。</p>
 <div class="example">
 <div class="djot">
 <pre><code>![picture of a cat](cat.jpg)
@@ -471,10 +458,8 @@ both inline and reference variants are possible.</p>
 </div>
 </section>
 <section id="autolink" class="level3">
-<h3>Autolink</h3>
-<p>A URL or email address that is enclosed in <code>&lt;</code>…<code>&gt;</code> will be hyperlinked.
-The content between pointy braces is treated literally
-(backslash-escapes may not be used).</p>
+<h3>自動リンク</h3>
+<p><code><</code> … <code>></code> で囲まれたURLまたはメールアドレスはハイパーリンクになります。尖中括弧間の内容は文字通りに扱われます（バックスラッシュ エスケープは使用できません）。</p>
 <div class="example">
 <div class="djot">
 <pre><code>&lt;https://pandoc.org/lua-filters&gt;
@@ -486,13 +471,11 @@ The content between pointy braces is treated literally
 </code></pre>
 </div>
 </div>
-<p>The URL or email address may not contain a newline.</p>
+<p>URLまたはメール アドレスには改行を含めることはできません。</p>
 </section>
 <section id="verbatim" class="level3">
-<h3>Verbatim</h3>
-<p>Verbatim content begins with a string of consecutive backtick characters
-(<code>`</code>) and ends with an equal-lengthed string of consecutive backtick
-characters.</p>
+<h3>逐語的に（Verbatim）</h3>
+<p>逐語的なコンテンツは、連続するバッククォート文字 (<code>`</code>) の文字列で始まり、同じ長さの連続するバッククォート文字の文字列で終わります。</p>
 <div class="example">
 <div class="djot">
 <pre><code>``Verbatim with a backtick` character``
@@ -504,10 +487,8 @@ characters.</p>
 </code></pre>
 </div>
 </div>
-<p>Material between the backticks is treated as verbatim text (backslash
-escapes don’t work there).</p>
-<p>If the content starts or ends with a backtick character, a single space
-is removed between the opening or closing backticks and the content.</p>
+<p>バッククォート間の内容は逐語的なテキストとして扱われます（そこではバックスラッシュ エスケープは機能しません）。</p>
+<p>コンテンツがバッククォート文字で開始または終了する場合、開始または終了バッククォートとコンテンツの間の1つのスペースが削除されます。</p>
 <div class="example">
 <div class="djot">
 <pre><code>`` `foo` ``</code></pre>
@@ -517,8 +498,7 @@ is removed between the opening or closing backticks and the content.</p>
 </code></pre>
 </div>
 </div>
-<p>If the text to be parsed as inline ends before a closing backtick string
-is encountered, the verbatim text extends to the end.</p>
+<p>インラインとして解析されるテキストが、終了バッククォート文字列に遭遇する前に終了する場合、逐語的テキストは最後まで続きます。</p>
 <div class="example">
 <div class="djot">
 <pre><code>`foo bar</code></pre>
@@ -530,9 +510,8 @@ is encountered, the verbatim text extends to the end.</p>
 </div>
 </section>
 <section id="emphasisstrong" class="level3">
-<h3>Emphasis/strong</h3>
-<p>Emphasized inline content is delimited by <code>_</code> characters. Strong
-emphasis is delimited by <code>*</code> characters.</p>
+<h3>強調/強い強調（Emphasis/strong）</h3>
+<p>強調されたインライン コンテンツは <code>_</code> 文字で区切られます。強い強調は <code>*</code> 文字で区切られます。</p>
 <div class="example">
 <div class="djot">
 <pre><code>_emphasized text_
@@ -545,10 +524,7 @@ emphasis is delimited by <code>*</code> characters.</p>
 </code></pre>
 </div>
 </div>
-<p>A <code>_</code> or <code>*</code> can open emphasis only if it is not directly followed by
-whitespace. It can close emphasis only if it is not directly preceded by
-whitespace, and only if there are some characters besides the delimiter
-character between the opener and the closer.</p>
+<p>また <code>_</code> は、<code>*</code> 直後に空白が続かない場合にのみ強調を開始できます。強調を閉じることができるのは、直前に空白がない場合、および開始文字と終了文字の間に区切り文字以外の文字がある場合のみです。</p>
 <div class="example">
 <div class="djot">
 <pre><code>_ Not emphasized (spaces). _
@@ -561,7 +537,7 @@ ___ (not an emphasized `_` character)</code></pre>
 </code></pre>
 </div>
 </div>
-<p>Emphasis can be nested:</p>
+<p>強調はネスト（入れ子に）することができます:</p>
 <div class="example">
 <div class="djot">
 <pre><code>__emphasis inside_ emphasis_</code></pre>
@@ -571,8 +547,7 @@ ___ (not an emphasized `_` character)</code></pre>
 </code></pre>
 </div>
 </div>
-<p>Curly braces may be used to force interpretation of a <code>_</code> or <code>*</code> either
-as an opener or as a closer.</p>
+<p>中括弧 <code>{</codr> は、<code>_</code> または <code>*</code> オープナーまたはクローザーとして強制的に解釈するために使用できます。</p>
 <div class="example">
 <div class="djot">
 <pre><code>{_ this is emphasized, despite the spaces! _}</code></pre>
@@ -584,9 +559,8 @@ as an opener or as a closer.</p>
 </div>
 </section>
 <section id="highlighted" class="level3">
-<h3>Highlighted</h3>
-<p>Inline content between <code>{=</code> and <code>=}</code> will be treated as highlighted text
-(in HTML, <code>&lt;mark&gt;</code>). Note that the <code>{</code> and <code>}</code> are mandatory.</p>
+<h3>ハイライト（mark）</h3>
+<p><code>{=</code> と <code>=}</code> の間のインライン コンテンツは、強調表示されたテキストとして扱われます（HTMLでの <code>&lt;mark&gt;</code>）。<code>{</code> と <code>}</code> は必須であることに注意してください。</p>
 <div class="example">
 <div class="djot">
 <pre><code>This is {=highlighted text=}.</code></pre>
@@ -598,7 +572,7 @@ as an opener or as a closer.</p>
 </div>
 </section>
 <section id="supersubscript" class="level3">
-<h3>Super/subscript</h3>
+<h3>上付き/下付き（Super/subscript）</h3>
 <p>Superscript is delimited by <code>^</code> characters, subscript by <code>~</code>.</p>
 <div class="example">
 <div class="djot">
