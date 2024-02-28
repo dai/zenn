@@ -183,4 +183,4 @@ a|b
 
 ここでは、Markdownユーザをつまずかせる可能性のある事柄に焦点を当てました。 これらを頭に入れておけば、これ以上ドキュメントを見ることなくdjotを使い始めることができるはずです。
 
-しかし、djotではできるがMarkdownではできないことについては、何も議論していません。利用可能な新しい構文については、[構文説明](https://htmlpreview.github.io/?https://github.com/jgm/djot/blob/master/doc/syntax.html)を参照してください。
+しかし、djotではできるがMarkdownではできないことについては、何も議論していません。利用可能な新しい構文については、[構文説明](https://htmlpreview.github.io/?https://github.com/dai/djot/blob/master/doc/ja-syntax.html)を参照してください。

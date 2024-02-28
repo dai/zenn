@@ -4,7 +4,7 @@ Djotは軽量のマークアップ構文です。この機能のほとんどは[
 
 このプロジェクトは、私([jgm](https://johnmacfarlane.net/))がエッセイ「[Beyond Markdown](https://johnmacfarlane.net/beyond-markdown.html)」で提案したアイデアのいくつかを実装する試みとして始まりました。(以下の「[理論的根拠](#理論的根拠)」を参照してください。)
 
-このリポジトリには、[構文の説明](https://htmlpreview.github.io/?https://github.com/dai/djot/blob/master/doc/ja-syntax.html)、[チートシート](https://github.com/dai/djot/blob/main/doc/ja-cheatsheet.md)、およびdjotとMarkdownの主な違いの概要を説明するMarkdownユーザー向けの[クイック スタート](https://github.com/dai/djot/blob/main/doc/ja-quick-start-for-markdown-users.md)が含まれています。
+このリポジトリには、[構文の説明](https://htmlpreview.github.io/?https://github.com/dai/djot/blob/master/doc/ja-syntax.html)、[チートシート](https://github.com/dai/djot/blob/main/doc/ja-cheatsheet.md)、およびdjotとMarkdownの主な違いの概要を説明するMarkdownユーザー向けの[クイックスタート](https://github.com/dai/djot/blob/main/doc/ja-quick-start-for-markdown-users.md)が含まれています。
 
 ローカルにインストールしなくても、[djotプレイグラウンド](https://djot.net/playground/)でdjotを試すことができます。
 
