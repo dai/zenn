@@ -64,7 +64,6 @@ _}not emphasized{_</p>
 
     *not strong *strong*
 
-
 ```html
 <p>*not strong <strong>strong</strong></p>
 ```
@@ -88,14 +87,18 @@ _}not emphasized{_</p>
 
     [My link text](http://example.com)
 
-    <p><a href="http://example.com">My link text</a></p>
+```html
+<p><a href="http://example.com">My link text</a></p>
+```
 
 URLは複数行に分かれている場合があります。この場合改行が行われ先頭と末尾の空白は無視され行が連結されます。
 
     [My link text](http://example.com?product_number=234234234234
     234234234234)
 
-    <p><a href="http://example.com?product_number=234234234234234234234234">My link text</a></p>
+```html
+<p><a href="http://example.com?product_number=234234234234234234234234">My link text</a></p>
+```
 
 *参照リンク*では括弧内の宛先ではなく角括弧内の参照ラベルを使用します。これはリンクテキストの直後に置く必要があります。
 
@@ -103,13 +106,17 @@ URLは複数行に分かれている場合があります。この場合改行�
 
     [foo bar]: http://example.com
 
-    <p><a href="http://example.com">My link text</a></p>
+```html
+<p><a href="http://example.com">My link text</a></p>
+```
 
 参照ラベルはドキュメント内のどこかで定義する必要があります。以下の[参照リンクの定義](#reference-link-definition)を参照してください。ただしリンクの解析は「ローカル」でありラベルが定義されているかどうかには依存しません。
 
     [foo][bar]
 
-    <p><a>foo</a></p>
+```html
+<p><a>foo</a></p>
+```
 
 ラベルがない場合、リンクテキストはリンクテキストだけでなく参照ラベルとしても解釈されます:
 
@@ -117,23 +124,27 @@ URLは複数行に分かれている場合があります。この場合改行�
 
     [My link text]: /url
 
-    <p><a href="/url">My link text</a></p>
+```html
+<p><a href="/url">My link text</a></p>
+```
 
 ### 画像
 
 画像はリンクと同じように機能しますが、接頭辞 `!` が付いています。リンクと同様にインラインバリアントと参照バリアントの両方が可能です。
 
     ![picture of a cat](cat.jpg)
-
+    
     ![picture of a cat][cat]
-
+    
     ![cat][]
-
+    
     [cat]: feline.jpg
 
-    <p><img alt="picture of a cat" src="cat.jpg"></p>
-    <p><img alt="picture of a cat" src="feline.jpg"></p>
-    <p><img alt="cat" src="feline.jpg"></p>
+```html
+<p><img alt="picture of a cat" src="cat.jpg"></p>
+<p><img alt="picture of a cat" src="feline.jpg"></p>
+<p><img alt="cat" src="feline.jpg"></p>
+```
 
 ### 自動リンク
 
@@ -142,8 +153,10 @@ URLは複数行に分かれている場合があります。この場合改行�
     <https://pandoc.org/lua-filters>
     <me@example.com>
 
-    <p><a href="https://pandoc.org/lua-filters">https://pandoc.org/lua-filters</a>
-    <a href="mailto:me@example.com">me@example.com</a></p>
+```html
+<p><a href="https://pandoc.org/lua-filters">https://pandoc.org/lua-filters</a>
+<a href="mailto:me@example.com">me@example.com</a></p>
+```
 
 URLまたはメールアドレスには改行を含めることはできません。
 
@@ -154,8 +167,10 @@ Verbatimコンテンツは、連続するバックティック文字（`` ` ``�
     ``Verbatim with a backtick` character``
     `Verbatim with three backticks  character`
 
-    <p><code>Verbatim with a backtick` character</code>
-    <code>Verbatim with three backticks  character</code></p>
+```html
+<p><code>Verbatim with a backtick` character</code>
+<code>Verbatim with three backticks  character</code></p>
+```
 
 バックティック間の内容はVerbatimテキストとして扱われます（そこではバックスラッシュ エスケープは機能しません）。
 
@@ -163,45 +178,57 @@ Verbatimコンテンツは、連続するバックティック文字（`` ` ``�
 
     `` `foo` ``
 
-    <p><code>`foo`</code></p>
+```html
+<p><code>`foo`</code></p>
+```
 
 インラインとして解析されるテキストが、終了バックティック文字列に遭遇する前に終了する場合、Verbatimテキストは最後まで続きます。
 
     `foo bar
 
-    <p><code>foo bar</code></p>
+```html
+<p><code>foo bar</code></p>
+```
 
 ### 強調と強い強調（Emphasis/strong）
 
 強調されたインラインコンテンツは `_` で囲みます。強い強調は `*` で囲みます。
 
     _emphasized text_
-
+    
     *strong emphasis*
 
-    <p><em>emphasized text</em></p>
-    <p><strong>strong emphasis</strong></p>
+```html
+<p><em>emphasized text</em></p>
+<p><strong>strong emphasis</strong></p>
+```
 
 また `_` は `*` 直後に空白が続かない場合にのみ強調を開始できます。強調を閉じることができるのは、直前に空白がない場合、および開始文字と終了文字の間に区切り文字以外の文字がある場合のみです。
 
     _ Not emphasized (spaces). _
-
+    
     ___ (not an emphasized `_` character)
 
-    <p>_ Not emphasized (spaces). _</p>
-    <p>___ (not an emphasized <code>_</code> character)</p>
+```html
+<p>_ Not emphasized (spaces). _</p>
+<p>___ (not an emphasized <code>_</code> character)</p>
+```
 
 強調はネスト（入れ子に）することができます:
 
     __emphasis inside_ emphasis_
 
-    <p><em><em>emphasis inside</em> emphasis</em></p>
+```html
+<p><em><em>emphasis inside</em> emphasis</em></p>
+```
 
 中括弧 `{` は `_` または `*` をオープナーまたはクローザーとして強制的に解釈するために使用できます。
 
     {_ this is emphasized, despite the spaces! _}
 
-    <p><em> this is emphasized, despite the spaces! </em></p>
+```html
+<p><em> this is emphasized, despite the spaces! </em></p>
+```
 
 ### ハイライト（mark）
 
@@ -209,7 +236,9 @@ Verbatimコンテンツは、連続するバックティック文字（`` ` ``�
 
     This is {=highlighted text=}.
 
-    <p>This is <mark>highlighted text</mark>.</p>
+```html
+<p>This is <mark>highlighted text</mark>.</p>
+```
 
 ### 上付きと下付き（Super/subscript）
 
@@ -217,13 +246,17 @@ Verbatimコンテンツは、連続するバックティック文字（`` ` ``�
 
     H~2~O and djot^TM^
 
-    <p>H<sub>2</sub>O and djot<sup>TM</sup></p>
+```html
+<p>H<sub>2</sub>O and djot<sup>TM</sup></p>
+```
 
 中括弧を使用することもできますが、必須ではありません:
 
     H{~one two buckle my shoe~}O
 
-    <p>H<sub>one two buckle my shoe</sub>O</p>
+```html
+<p>H<sub>one two buckle my shoe</sub>O</p>
+```
 
 ### 挿入と取り消し線（Insert/delete）
 
@@ -231,7 +264,9 @@ Verbatimコンテンツは、連続するバックティック文字（`` ` ``�
 
     My boss is {-mean-}{+nice+}.
 
-    <p>My boss is <del>mean</del><ins>nice</ins>.</p>
+```html
+<p>My boss is <del>mean</del><ins>nice</ins>.</p>
+```
 
 ### スマート句読点
 
@@ -240,20 +275,26 @@ Verbatimコンテンツは、連続するバックティック文字（`` ` ``�
     "Hello," said the spider.
     "'Shelob' is my name."
 
-    <p>&ldquo;Hello,&rdquo; said the spider.
-    &ldquo;&lsquo;Shelob&rsquo; is my name.&rdquo;</p>
+```html
+<p>&ldquo;Hello,&rdquo; said the spider.
+&ldquo;&lsquo;Shelob&rsquo; is my name.&rdquo;</p>
+```
 
 ただし、そのヒューリスティックは中かっこを使用した引用符をオープナー `{"` またはクローザー `"}` としてマークすることでオーバーライドできます:
 
     '}Tis Socrates' season to be jolly!
 
-    <p>&rsquo;Tis Socrates&rsquo; season to be jolly!</p>
+```html
+<p>&rsquo;Tis Socrates&rsquo; season to be jolly!</p>
+```
 
 直接引用符が必要な場合は、バックスラッシュとエスケープを使用します:
 
     5\'11\"
 
-    <p>5'11"</p>
+```html
+<p>5'11"</p>
+```
 
 ピリオド3つのシーケンスは *ellipses* として解析されます。 `...`
 
@@ -263,13 +304,17 @@ Verbatimコンテンツは、連続するバックティック文字（`` ` ``�
 
     57--33 oxen---and no sheep...
 
-    <p>57&ndash;33 oxen&mdash;and no sheep&hellip;</p>
+```html
+<p>57&ndash;33 oxen&mdash;and no sheep&hellip;</p>
+```
 
 より長いハイフンのシーケンスは、全角ダッシュ、半角ダッシュ、およびハイフンに分割されます。可能であれば均一に、どちらの方法でも均一性が達成できる場合は、全角ダッシュを使用することを推奨します。（つまり、4つのハイフンは2つの半角ダッシュになり、6つのハイフンは2つの半角ダッシュになります）。
 
     a----b c------d
 
-    <p>a&ndash;&ndash;b c&mdash;&mdash;d</p>
+```html
+<p>a&ndash;&ndash;b c&mdash;&mdash;d</p>
+```
 
 ### 数式
 
@@ -279,9 +324,11 @@ LaTeX数式を含めるには、その数式をVerbatimスパンに入れ、そ�
     Pythagoras proved
     $$` x^n + y^n = z^n `
 
-    <p>Einstein derived <span class="math inline">\(e=mc^2\)</span>.
-    Pythagoras proved
-    <span class="math display">\[ x^n + y^n = z^n \]</span></p>
+```html
+<p>Einstein derived <span class="math inline">\(e=mc^2\)</span>.
+Pythagoras proved
+<span class="math display">\[ x^n + y^n = z^n \]</span></p>
+```
 
 ### 脚注参照
 
@@ -291,15 +338,17 @@ LaTeX数式を含めるには、その数式をVerbatimスパンに入れ、そ�
 
     [^foo]: And here is the note.
 
-    <p>Here is the reference.<a id="fnref1" href="#fn1" role="doc-noteref"><sup>1</sup></a></p>
-    <section role="doc-endnotes">
-    <hr>
-    <ol>
-    <li id="fn1">
-    <p>And here is the note.<a href="#fnref1" role="doc-backlink">↩︎︎</a></p>
-    </li>
-    </ol>
-    </section>
+```html
+<p>Here is the reference.<a id="fnref1" href="#fn1" role="doc-noteref"><sup>1</sup></a></p>
+<section role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn1">
+<p>And here is the note.<a href="#fnref1" role="doc-backlink">↩︎︎</a></p>
+</li>
+</ol>
+</section>
+```
 
 脚注自体の構文については、以下の[脚注](#footnote)を参照してください。
 
@@ -313,9 +362,11 @@ LaTeX数式を含めるには、その数式をVerbatimスパンに入れ、そ�
     break and this is a hard\
     break.
 
-    <p>This is a soft
-    break and this is a hard<br>
-    break.</p>
+```html
+<p>This is a soft
+break and this is a hard<br>
+break.</p>
+```
 
 ### コメント
 
@@ -328,7 +379,9 @@ LaTeX数式を含めるには、その数式をVerbatimスパンに入れ、そ�
     Foo bar {% This is a comment, spanning
     multiple lines %} baz.
 
-    <p>Foo bar  baz.</p>
+```html
+<p>Foo bar  baz.</p>
+```
 
 ### 記号
 
@@ -336,7 +389,9 @@ LaTeX数式を含めるには、その数式をVerbatimスパンに入れ、そ�
 
     My reaction is :+1: :smiley:.
 
-    <p>My reaction is 👍 😃.</p>
+```html
+<p>My reaction is 👍 😃.</p>
+```
 
 ### Rawインライン
 
@@ -344,7 +399,9 @@ LaTeX数式を含めるには、その数式をVerbatimスパンに入れ、そ�
 
     This is `<?php echo 'Hello world!' ?>`{=html}.
 
-    <p>This is <?php echo 'Hello world!' ?>.</p>
+```html
+<p>This is <?php echo 'Hello world!' ?>.</p>
+```
 
 このコンテンツは、指定された形式をレンダリングするときにそのまま渡されるように意図されていますが、それ以外の場合は無視されます。
 
@@ -354,7 +411,9 @@ LaTeX数式を含めるには、その数式をVerbatimスパンに入れ、そ�
 
     It can be helpful to [read the manual]{.big .red}.
 
-    <p>It can be helpful to <span class="big red">read the manual</span>.</p>
+```html
+<p>It can be helpful to <span class="big red">read the manual</span>.</p>
+```
 
 ### インライン属性
 
@@ -374,19 +433,25 @@ LaTeX数式を含めるには、その数式をVerbatimスパンに入れ、そ�
     An attribute on _emphasized text_{#foo
     .bar .baz key="my value"}
 
-    <p>An attribute on <em class="bar baz" id="foo" key="my value">emphasized text</em></p>
+```html
+<p>An attribute on <em class="bar baz" id="foo" key="my value">emphasized text</em></p>
+```
 
 属性指定子は「stacked」（積み重ねること）ができ、その場合は結合されます。したがって、
 
     avant{lang=fr}{.blue}
 
-    <p><span class="blue" lang="fr">avant</span></p>
+```html
+<p><span class="blue" lang="fr">avant</span></p>
+```
 
 は、以下と同じです
 
     avant{lang=fr .blue}
 
-    <p><span class="blue" lang="fr">avant</span></p>
+```html
+<p><span class="blue" lang="fr">avant</span></p>
+```
 
 ## ブロック構文
 
@@ -404,15 +469,15 @@ commonmarkと同様に、ブロック構造はインライン解析の前に識�
 
 ### 見出し
 
-見出しは1つ以上の `#` 文字シーケンスで始まり、その後に空白が続きます。
-`#`
-文字の数によって見出しレベルは定義されます。次のテキストはインラインコンテンツとして解析されます。
+見出しは1つ以上の `#` 文字シーケンスで始まり、その後に空白が続きます。`#` 文字の数によって見出しレベルは定義されます。次のテキストはインラインコンテンツとして解析されます。
 
     ## A level _two_ heading!
 
-    <section id="A-level-two-heading">
-    <h2>A level <em>two</em> heading!</h2>
-    </section>
+```html
+<section id="A-level-two-heading">
+<h2>A level <em>two</em> heading!</h2>
+</section>
+```
 
 見出しテキストは後続の行にまたがる場合があり、その前に同じ数の `#` 文字が続く場合もあります（ただし、省略することもできます）。
 
@@ -424,25 +489,27 @@ commonmarkと同様に、ブロック構造はインライン解析の前に識�
 
     A paragraph, finally
 
-    <section id="A-heading-that-takes-up-three-lines">
-    <h1>A heading that
-    takes up
-    three lines</h1>
-    <p>A paragraph, finally</p>
-    </section>
+```html
+<section id="A-heading-that-takes-up-three-lines">
+<h1>A heading that
+takes up
+three lines</h1>
+<p>A paragraph, finally</p>
+</section>
 
-    # A heading that
-    takes up
-    three lines
+# A heading that
+takes up
+three lines
 
-    A paragraph, finally.
+A paragraph, finally.
 
-    <section id="A-heading-that-takes-up-three-lines">
-    <h1>A heading that
-    takes up
-    three lines</h1>
-    <p>A paragraph, finally.</p>
-    </section>
+<section id="A-heading-that-takes-up-three-lines">
+<h1>A heading that
+takes up
+three lines</h1>
+<p>A paragraph, finally.</p>
+</section>
+```
 
 ### 引用ブロック（Block quote）
 
@@ -453,27 +520,31 @@ commonmarkと同様に、ブロック構造はインライン解析の前に識�
     > 1. with a
     > 2. list in it.
 
-    <blockquote>
-    <p>This is a block quote.</p>
-    <ol>
-    <li>
-    with a
-    </li>
-    <li>
-    list in it.
-    </li>
-    </ol>
-    </blockquote>
+```html
+<blockquote>
+<p>This is a block quote.</p>
+<ol>
+<li>
+with a
+</li>
+<li>
+list in it.
+</li>
+</ol>
+</blockquote>
+```
 
 Markdownと同様に、段落はじまり行の前を除き、引用ブロック内の通常段落行から `>` プレフィックスを省略することができます:
 
     > This is a block
     quote.
 
-    <blockquote>
-    <p>This is a block
-    quote.</p>
-    </blockquote>
+```html
+<blockquote>
+<p>This is a block
+quote.</p>
+</blockquote>
+```
 
 ### リスト項目
 
@@ -484,15 +555,17 @@ Markdownと同様に、段落はじまり行の前を除き、引用ブロック
 
      > containing a block quote
 
-    <ol>
-    <li>
-    <p>This is a
-    list item.</p>
-    <blockquote>
-    <p>containing a block quote</p>
-    </blockquote>
-    </li>
-    </ol>
+```html
+<ol>
+<li>
+<p>This is a
+list item.</p>
+<blockquote>
+<p>containing a block quote</p>
+</blockquote>
+</li>
+</ol>
+```
 
 段落の開始行に続く段落行では、インデントが省略される場合があります:
 
@@ -502,39 +575,41 @@ Markdownと同様に、段落はじまり行の前を除き、引用ブロック
       Second paragraph under the
     list item.
 
-    <ol>
-    <li>
-    <p>This is a
-    list item.</p>
-    <p>Second paragraph under the
-    list item.</p>
-    </li>
-    </ol>
+```html
+<ol>
+<li>
+<p>This is a
+list item.</p>
+<p>Second paragraph under the
+list item.</p>
+</li>
+</ol>
+```
 
 次の基本的なタイプのリストマーカーを使用できます:
 
-  マーカー   リストの種類
-  ---------- --------------------------------------------------
-  `-`        bullet
-  `+`        bullet
-  `*`        bullet
-  `1.`       順序付き、10進数、直後にピリオド
-  `1)`       順序付き、10進数、直後に終わり括弧
-  `(1)`      順序付き、10進数、括弧で挟む
-  `a.`       順序付き、アルファベット小文字、直後にピリオド
-  `a)`       順序付き、アルファベット小文字、直後に終わり括弧
-  `(a)`      順序付き、アルファベット小文字、括弧で挟む
-  `A.`       順序付き、アルファベット大文字、直後にピリオド
-  `A)`       順序付き、アルファベット大文字、直後に終わり括弧
-  `(A)`      順序付き、アルファベット大文字、括弧で挟む
-  `i.`       順序付き、ローマ数字小文字、直後にピリオド
-  `i)`       順序付き、ローマ数字小文字、直後に終わり括弧
-  `(i)`      順序付き、ローマ数字小文字、括弧で挟む
-  `I.`       順序付き、ローマ数字大文字、直後にピリオド
-  `I)`       順序付き、ローマ数字大文字、直後に終わり括弧
-  `(I)`      順序付き、ローマ数字大文字、括弧で挟む
-  `:`        定義語
-  `- [ ]`    タスク
+| マーカー        | リストの種類                      |
+| ------------- | -------------------------- |
+| `-`                | bullet                      |
+| `+`                | bullet                      |
+| `*`                | bullet                      |
+| `1.`                | 順序付き、10進数、直後にピリオド                      |
+| `1)`                | 順序付き、10進数、直後に終わり括弧                      |
+| `(1)`                | 順序付き、10進数、括弧で挟む                      |
+| `a.`                | 順序付き、アルファベット小文字、直後にピリオド                      |
+| `a)`                | 順序付き、アルファベット小文字、直後に終わり括弧                      |
+| `(a)`                | 順序付き、アルファベット小文字、括弧で挟む                      |
+| `A.`                | 順序付き、アルファベット大文字、直後にピリオド                      |
+| `A)`                | 順序付き、アルファベット大文字、直後に終わり括弧                      |
+| `(A)`              | 順序付き、アルファベット大文字、括弧で挟む                      |
+| `i.`                | 順序付き、ローマ数字小文字、直後にピリオド                      |
+| `i)`                | 順序付き、ローマ数字小文字、直後に終わり括弧                      |
+| `(i)`                | 順序付き、ローマ数字小文字、括弧で挟む                      |
+| `I.`                | 順序付き、ローマ数字大文字、直後にピリオド                      |
+| `I)`                | 順序付き、ローマ数字大文字、直後に終わり括弧                      |
+| `(I)`                 | 順序付き、ローマ数字大文字、括弧で挟む                      |
+| `:`                     | 定義語                            |
+| `- [ ]`                 | タスク                            |
 
 順序付きリストマーカーは、一連の任意の番号を使用できます: したがって `(xix)` および `v)` は、どちらも有効なローマ字小文字列挙マーカーであり、`v)` は有効なアルファベット小文字列挙マーカー *でも* あります。
 
@@ -550,12 +625,14 @@ Markdownと同様に、段落はじまり行の前を除き、引用ブロック
 
       A citrus fruit.
 
-    <dl>
-    <dt>orange</dt>
-    <dd>
-    <p>A citrus fruit.</p>
-    </dd>
-    </dl>
+```html
+<dl>
+<dt>orange</dt>
+<dd>
+<p>A citrus fruit.</p>
+</dd>
+</dl>
+```
 
 ### リスト
 
@@ -566,40 +643,44 @@ Markdownと同様に、段落はじまり行の前を除き、引用ブロック
     + bullet
     * bullet (style change)
 
-    <ol start="9" type="a">
-    <li>
-    one
-    </li>
-    </ol>
-    <ol start="9" type="a">
-    <li>
-    one (style change)
-    </li>
-    </ol>
-    <ul>
-    <li>
-    bullet
-    </li>
-    </ul>
-    <ul>
-    <li>
-    bullet (style change)
-    </li>
-    </ul>
+```html
+<ol start="9" type="a">
+<li>
+one
+</li>
+</ol>
+<ol start="9" type="a">
+<li>
+one (style change)
+</li>
+</ol>
+<ul>
+<li>
+bullet
+</li>
+</ul>
+<ul>
+<li>
+bullet (style change)
+</li>
+</ul>
+```
 
 リスト項目の種類が曖昧な場合があります。この場合、可能であればリストを継続する方法で曖昧さが解決されます。たとえば、
 
     i. item
     j. next item
 
-    <ol start="9" type="a">
-    <li>
-    item
-    </li>
-    <li>
-    next item
-    </li>
-    </ol>
+```html
+<ol start="9" type="a">
+<li>
+item
+</li>
+<li>
+next item
+</li>
+</ol>
+```
 
 最初の項目は、ローマ字小文字列挙とアルファベット小文字列挙の間で曖昧です。ただし、次の項目では後者の解釈のみが機能するため、2つの別々のリストよりも1つの連続したリストを作成できる読み方を好みます。
 
@@ -608,14 +689,16 @@ Markdownと同様に、段落はじまり行の前を除き、引用ブロック
     5) five
     8) six
 
-    <ol start="5">
-    <li>
-    five
-    </li>
-    <li>
-    six
-    </li>
-    </ol>
+```html
+<ol start="5">
+<li>
+five
+</li>
+<li>
+six
+</li>
+</ol>
+```
 
 項目間または項目内のブロック間に空白行が含まれていないリストは、 *厳密に* （tightとして）分類されます。リストの先頭または末尾にある空白行は、厳密さの対象にはなりません。
 
@@ -625,22 +708,24 @@ Markdownと同様に、段落はじまり行の前を除き、引用ブロック
       - sub
       - sub
 
-    <ul>
-    <li>
-    one
-    </li>
-    <li>
-    two
-    <ul>
-    <li>
-    sub
-    </li>
-    <li>
-    sub
-    </li>
-    </ul>
-    </li>
-    </ul>
+```html
+<ul>
+<li>
+one
+</li>
+<li>
+two
+<ul>
+<li>
+sub
+</li>
+<li>
+sub
+</li>
+</ul>
+</li>
+</ul>
+```
 
 厳密でないリストは *緩い* （looseな）リストです。この区別の意図された重要性は、項目間の空白を減らして厳密（タイト）なリストを表示する必要があることです。
 
@@ -648,14 +733,16 @@ Markdownと同様に、段落はじまり行の前を除き、引用ブロック
 
     - two
 
-    <ul>
-    <li>
-    <p>one</p>
-    </li>
-    <li>
-    <p>two</p>
-    </li>
-    </ul>
+```html
+<ul>
+<li>
+<p>one</p>
+</li>
+<li>
+<p>two</p>
+</li>
+</ul>
+```
 
 ### コードブロック
 
@@ -664,20 +751,18 @@ Markdownと同様に、段落はじまり行の前を除き、引用ブロック
 コンテンツはverbatimテキストとして解釈されます。
 コンテンツにバックティック行が含まれている場合は、「フェンス」として用いたバックティックより多い数を指定してください:
 
-    `
     This is how you do a code block:
 
      ruby
     x = 5 * 6
-    
-    `
 
-    <pre><code>This is how you do a code block:
+```html
+<pre><code>This is how you do a code block:
 
-     ruby
-    x = 5 * 6
-    
-    </code></pre>
+ ruby
+x = 5 * 6
+</code></pre>
+```
 
 以下は、親コンテナが閉じられたときに暗黙的に閉じられるコードブロックの例です;
 
@@ -687,12 +772,14 @@ Markdownと同様に、段落はじまり行の前を除き、引用ブロック
 
     Paragraph.
 
-    <blockquote>
-    <pre><code>code in a
-    block quote
-    </code></pre>
-    </blockquote>
-    <p>Paragraph.</p>
+```html
+<blockquote>
+<pre><code>code in a
+block quote
+</code></pre>
+</blockquote>
+<p>Paragraph.</p>
+```
 
 ### 水平線（hr）
 
@@ -704,9 +791,11 @@ Markdownと同様に、段落はじまり行の前を除き、引用ブロック
 
     When they woke up, ...
 
-    <p>Then they went to sleep.</p>
-    <hr>
-    <p>When they woke up, &hellip;</p>
+```html
+<p>Then they went to sleep.</p>
+<hr>
+<p>When they woke up, &hellip;</p>
+```
 
 ### Raw ブロック
 
@@ -720,11 +809,13 @@ Markdownと同様に、段落はじまり行の前を除き、引用ブロック
     </video>
     
 
-    <video width="320" height="240" controls>
-      <source src="movie.mp4" type="video/mp4">
-      <source src="movie.ogg" type="video/ogg">
-      Your browser does not support the video tag.
-    </video>
+```html
+<video width="320" height="240" controls>
+  <source src="movie.mp4" type="video/mp4">
+  <source src="movie.ogg" type="video/ogg">
+  Your browser does not support the video tag.
+</video>
+```
 
 ### Div
 
@@ -738,10 +829,12 @@ divのコンテンツはブロックレベルコンテンツとして解釈さ�
     And here is another.
     :::
 
-    <div class="warning">
-    <p>Here is a paragraph.</p>
-    <p>And here is another.</p>
-    </div>
+```html
+<div class="warning">
+<p>Here is a paragraph.</p>
+<p>And here is another.</p>
+</div>
+```
 
 ### パイプテーブル
 
@@ -749,12 +842,14 @@ divのコンテンツはブロックレベルコンテンツとして解釈さ�
 
     | 1 | 2 |
 
-    <table>
-    <tr>
-    <td>1</td>
-    <td>2</td>
-    </tr>
-    </table>
+```html
+<table>
+<tr>
+<td>1</td>
+<td>2</td>
+</tr>
+</table>
+```
 
 *区切り線* `-` は、すべてのセルが1つ以上の文字のシーケンスで構成されている行で、オプションで接頭辞または接尾辞に `:` が付けられます。
 
@@ -765,20 +860,22 @@ divのコンテンツはブロックレベルコンテンツとして解釈さ�
     | apple  |     4 |
     | banana |    10 |
 
-    <table>
-    <tr>
-    <th>fruit</th>
-    <th style="text-align: right;">price</th>
-    </tr>
-    <tr>
-    <td>apple</td>
-    <td style="text-align: right;">4</td>
-    </tr>
-    <tr>
-    <td>banana</td>
-    <td style="text-align: right;">10</td>
-    </tr>
-    </table>
+```html
+<table>
+<tr>
+<th>fruit</th>
+<th style="text-align: right;">price</th>
+</tr>
+<tr>
+<td>apple</td>
+<td style="text-align: right;">4</td>
+</tr>
+<tr>
+<td>banana</td>
+<td style="text-align: right;">10</td>
+</tr>
+</table>
+```
 
 列の配置は、次のように区切り線によって決まります:
 
@@ -795,20 +892,22 @@ divのコンテンツはブロックレベルコンテンツとして解釈さ�
     |:---|---:|
     | 3  | 4  |
 
-    <table>
-    <tr>
-    <th>a</th>
-    <th style="text-align: center;">b</th>
-    </tr>
-    <tr>
-    <th style="text-align: left;">1</th>
-    <th style="text-align: right;">2</th>
-    </tr>
-    <tr>
-    <td style="text-align: left;">3</td>
-    <td style="text-align: right;">4</td>
-    </tr>
-    </table>
+```html
+<table>
+<tr>
+<th>a</th>
+<th style="text-align: center;">b</th>
+</tr>
+<tr>
+<th style="text-align: left;">1</th>
+<th style="text-align: right;">2</th>
+</tr>
+<tr>
+<td style="text-align: left;">3</td>
+<td style="text-align: right;">4</td>
+</tr>
+</table>
+```
 
 `a` と `b` はヘッダーで、左の列はデフォルトで揃えられ、右の列は中央揃えで配置されます。 `1` と `2` を含む次の実際の2行もヘッダーであり、左の列は左揃え、右の列は右揃えになります。この配置は `3` と `4` を含む後続の行にも適用されます。
 
@@ -817,12 +916,14 @@ divのコンテンツはブロックレベルコンテンツとして解釈さ�
     |:--|---:|
     | x | 2  |
 
-    <table>
-    <tr>
-    <td style="text-align: left;">x</td>
-    <td style="text-align: right;">2</td>
-    </tr>
-    </table>
+```html
+<table>
+<tr>
+<td style="text-align: left;">x</td>
+<td style="text-align: right;">2</td>
+</tr>
+</table>
+```
 
 テーブルのセル内コンテンツはインラインとして解析されます。パイプテーブルのセル内ではブロックレベルのコンテンツを使用できません。
 
@@ -830,12 +931,14 @@ Djotは、バックスラッシュでエスケープされたパイプやverbati
 
     | just two \| `|` | cells in this table |
 
-    <table>
-    <tr>
-    <td>just two | <code>|</code></td>
-    <td>cells in this table</td>
-    </tr>
-    </table>
+```html
+<table>
+<tr>
+<td>just two | <code>|</code></td>
+<td>cells in this table</td>
+</tr>
+</table>
+```
 
 次の構文を使用して表にキャプションを追加できます:
 
@@ -863,7 +966,9 @@ Djotは、バックスラッシュでエスケープされたパイプやverbati
 
     [ref][]
 
-    <p><a href="/url" title="foo">ref</a></p>
+```html
+<p><a href="/url" title="foo">ref</a></p>
+```
 
 URLは `/url` 、テキストリンクは「ref」、タイトルは「foo」として生成されます。ただし、同じ属性がリンクと参照定義の両方で定義されている場合は、リンク上の属性が参照定義の属性をオーバーライドします。
 
@@ -872,7 +977,9 @@ URLは `/url` 、テキストリンクは「ref」、タイトルは「foo」と
 
     [ref][]{title=bar}
 
-    <p><a href="/url" title="bar">ref</a></p>
+```html
+<p><a href="/url" title="bar">ref</a></p>
+```
 
 上記は「bar」というタイトルのリンクを取得します。
 
@@ -889,21 +996,23 @@ URLは `/url` 、テキストリンクは「ref」、タイトルは「foo」と
 
       > a block quote in the note.
 
-    <p>Here&rsquo;s the reference.<a id="fnref1" href="#fn1" role="doc-noteref"><sup>1</sup></a></p>
-    <section role="doc-endnotes">
-    <hr>
-    <ol>
-    <li id="fn1">
-    <p>This is a note
-    with two paragraphs.</p>
-    <p>Second paragraph.</p>
-    <blockquote>
-    <p>a block quote in the note.</p>
-    </blockquote>
-    <p><a href="#fnref1" role="doc-backlink">↩︎︎</a></p>
-    </li>
-    </ol>
-    </section>
+```html
+<p>Here&rsquo;s the reference.<a id="fnref1" href="#fn1" role="doc-noteref"><sup>1</sup></a></p>
+<section role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn1">
+<p>This is a note
+with two paragraphs.</p>
+<p>Second paragraph.</p>
+<blockquote>
+<p>a block quote in the note.</p>
+</blockquote>
+<p><a href="#fnref1" role="doc-backlink">↩︎︎</a></p>
+</li>
+</ol>
+</section>
+```
 
 引用ブロックやリスト項目と同様に、段落の後続行ではインデントを「lazily」省略できます:
 
@@ -915,18 +1024,20 @@ URLは `/url` 、テキストリンクは「ref」、タイトルは「foo」と
       Second paragraph must
     be indented, at least in the first line.
 
-    <p>Here&rsquo;s the reference.<a id="fnref1" href="#fn1" role="doc-noteref"><sup>1</sup></a></p>
-    <section role="doc-endnotes">
-    <hr>
-    <ol>
-    <li id="fn1">
-    <p>This is a note
-    with two paragraphs.</p>
-    <p>Second paragraph must
-    be indented, at least in the first line.<a href="#fnref1" role="doc-backlink">↩︎︎</a></p>
-    </li>
-    </ol>
-    </section>
+```html
+<p>Here&rsquo;s the reference.<a id="fnref1" href="#fn1" role="doc-noteref"><sup>1</sup></a></p>
+<section role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn1">
+<p>This is a note
+with two paragraphs.</p>
+<p>Second paragraph must
+be indented, at least in the first line.<a href="#fnref1" role="doc-backlink">↩︎︎</a></p>
+</li>
+</ol>
+</section>
+```
 
 ### ブロックの属性
 
@@ -939,10 +1050,12 @@ URLは `/url` 、テキストリンクは「ref」、タイトルは「foo」と
     {source="Iliad"}
     > Sing, muse, of the wrath of Achilles
 
-    <p class="important large" id="water">Don&rsquo;t forget to turn off the water!</p>
-    <blockquote source="Iliad">
-    <p>Sing, muse, of the wrath of Achilles</p>
-    </blockquote>
+```html
+<p class="important large" id="water">Don&rsquo;t forget to turn off the water!</p>
+<blockquote source="Iliad">
+<p>Sing, muse, of the wrath of Achilles</p>
+</blockquote>
+```
 
 ### 見出しへのリンク
 
@@ -950,9 +1063,11 @@ URLは `/url` 、テキストリンクは「ref」、タイトルは「foo」と
 
     ## My heading + auto-identifier
 
-    <section id="My-heading-auto-identifier">
-    <h2>My heading + auto-identifier</h2>
-    </section>
+```html
+<section id="My-heading-auto-identifier">
+<h2>My heading + auto-identifier</h2>
+</section>
+```
 
 ただし、暗黙的なリンク参照がすべての見出しに対して作成されるため、ほとんどの場合、見出しに割り当てられた識別子を知る必要はありません。したがって、同じ文書内の「Epilogue」というタイトルの見出しにリンクするには、参照リンクを使用するだけです:
 
@@ -962,11 +1077,13 @@ URLは `/url` 、テキストリンクは「ref」、タイトルは「foo」と
 
     # Epilogue
 
-    <p>See the <a href="#Epilogue">Epilogue</a>.</p>
-    <hr>
-    <section id="Epilogue">
-    <h1>Epilogue</h1>
-    </section>
+```html
+<p>See the <a href="#Epilogue">Epilogue</a>.</p>
+<hr>
+<section id="Epilogue">
+<h1>Epilogue</h1>
+</section>
+```
 
 ## ネストの制限
 
