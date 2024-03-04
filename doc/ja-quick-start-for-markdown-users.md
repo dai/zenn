@@ -150,16 +150,19 @@ Markdownでは、行を2つのスペースで終わらせることで、ハー�
 
 Markdownでは、raw HTMLを"そのまま"挿入することができます。 djotでは、raw HTMLとしてマークする必要があります：
 
-````
-これがraw HTMLです： `<a id="foo">`{=html}
+これがraw HTMLです： <code>`<a id="foo">`{=html} </code>
 
 これがraw HTMLブロックです：
+
+
+````
 
 ``` =html
 <table>
 <tr><td>foo</td></tr>
 </table>
 ```
+
 ````
 
 #### テーブル
