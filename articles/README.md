@@ -3,7 +3,7 @@ title: "Djot Japanese Docs"
 emoji: ""
 type: "tech" # tech: 技術記事 / idea: アイデア
 topics: ["markdown", "djot", "japanese"]
-published: false
+published: true
 ---
 
 Djotは軽量なマークアップ構文です。この機能のほとんどは[commonmark](https://spec.commonmark.org)から派生していますが、commonmarkにおいて構文が複雑で効率的な解析が難しい点をいくつか修正しています。また定義リスト、脚注、表、いくつかの新しい種類のインライン形式（挿入/削除、ハイライト、上付き/下付き）、数式、スマート句読点、どの要素にも適用できる属性、ブロックレベル、インラインレベル、未加工コンテンツ用の汎用コンテナをサポートしており、commonmarkよりもはるかに機能が充実しています。
