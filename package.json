@@ -1,0 +1,18 @@
+{
+  "name": "zenn",
+  "version": "1.0.0",
+  "description": "Djot is a light markup syntax. It derives most of its features\r from [commonmark](https://spec.commonmark.org), but it fixes\r a few things that make commonmark's syntax complex and difficult\r to parse efficiently. It is also much fuller-featured than\r commonmark, with support for definition lists, footnotes,\r tables, several new kinds of inline formatting (insert, delete,\r highlight, superscript, subscript), math, smart punctuation,\r attributes that can be applied to any element, and generic\r containers for block-level, inline-level, and raw content.",
+  "main": "index.js",
+  "directories": {
+    "doc": "doc"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "zenn-cli": "^0.1.153"
+  }
+}
