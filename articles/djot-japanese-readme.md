@@ -1,7 +1,6 @@
 ---
 title: "Djot Japanese Docs"
 emoji: "🗾"
-slug: djot
 type: "tech" # tech: 技術記事 / idea: アイデア
 topics: ["markdown", "djot", "japanese"]
 published: true
